@@ -1,0 +1,2328 @@
+
+=====PPTX Presentations/Presentation 1.pptx
+--slide 1
+Robotic Approach for the Rehabilitation of Hand Motion after a Stroke 
+Amritha Leo (200808666)
+Gabriela Noe (200720959) 
+Stephen Worsley (200795006)
+Tuan Le (200788701)
+Marwan Ahmed (200708138) 
+Date: 27/10/2016
+Presentation Num: 1
+--slide 2
+Content
+1. Problem Description
+
+2. Literature Review
+A. Hand Anatomy & Motion
+B. Therapy
+C. Existing Robotic Devices
+
+3. Aim & Objectives
+4. Deliverables
+--slide 3
+Problem Description – Stroke
+Overview
+Stroke occurs when blood flow to a portion of the brain is restricted. 
+ Ischaemic – restriction from a blood clot
+Haemorrhagic – restriction from artery bursting
+Portion of the brain dies 
+Huge societal costs – 4% of total health care costs in industrialised world (Donnan et al., 2008)
+
+Impact
+Approximately 152,000 times a year in the UK
+Over 1.2 million stroke survivors in the UK.
+Stroke is one of the largest causes of disability.
+Over a third are discharged requiring help with ADL’s.
+
+
+
+
+--slide 4
+Problem Description – Stroke
+Impairments
+Wide range of disabilities 
+Hemiparesis – weakness down one side of the body
+Affects 70-85% of first stroke sufferers
+67% of patients still had difficulties with upper extremity movement four years post stroke (Broeks et al., 1999)
+Can be treated with physiotherapy – expensive
+Patients don't get enough therapy – need affordable robotic devices 
+
+Hand Specific Impairment
+Flaccidity 
+Weakness
+Spasticity 
+High tone
+
+
+--slide 5
+A. Hand Anatomy & Motion
+21 DOF
+Range of motion limitations
+
+
+
+
+
+
+
+Limits imposed on joints during finger motions 
+(intrafinger and interfinger)
+
+Natural motion performance
+--slide 6
+B. Therapy
+Significant benefit is most often achieved among patients with moderate levels of disability as measured on functional scales, but not among those with the greatest disability ( 10 degrees of finger extension about MCP joint)
+Types of Therapy:
+A .CIMT   B. Active-Passive Bilateral  C. Passive Assist   D. Non Active Assist  E. Active Assist
+
+--slide 7
+C. Performance measures
+They are required to develop and monitor the quality of care provided during rehabilitation 
+Current stroke performance measures include: 
+          - Fugl- Meyers test- 66 points
+          - Action Research Arm Test
+Exploring Robot measurements and ways of incorporating them into our device
+--slide 8
+D. Existing Robotic Devices 
+
+--slide 9
+3. Aim
+Design, build and test a functional and portable robotic device that would aid in post stroke rehabilitation of the flaccid/stiff hand by providing active assisted therapy to patients with impairment while monitoring progress via a user-interface. 
+--slide 10
+3. Objectives
+Undertake research in order to understand the principles of strokes and their consequences, clinical need, current treatments and therapies, as well as wearable robotic devices and bio-mechatronics.
+Research literature and produce an analysis of hand motion including range of motion, degrees of freedom, force and grips required, etc.
+Formulate a design specification using the information gathered from the literature.
+Follow a design cycle to generate a conceptual design on CAD that would enable patient to perform three ADL’s.
+Design an initial control system to power the device and feedback user interface
+Finalise the design, manufacture and assemble a prototype comprising of:
+Hardware: An exoskeleton with comfortable materials suitable for varying hand sizes.
+Software: User-interface that would provide visual feedback along with a control mechanism that assessed progress and altered delivery of rehabilitation method accordingly.
+Develop a testing mechanism to ensure the efficient functioning of the device.
+Produce necessary risk assessment documentation coupled with a user guidelines
+
+
+
+--slide 11
+4. Deliverables
+
+--slide 12
+QUESTIONS & ANSWERS
+
+=====PPTX Presentations/Presentation 2.pptx
+--slide 1
+Robotic Approach for the Rehabilitation of Hand motion after a stroke - HEXORA
+Amritha Leo (200808666)
+Gabriela Noe (200720959)
+Stephen Worsley (200795006)
+Tuan Le (200788701)
+Marwan Ahmed   (200708138) 
+Date: 24/03/2017
+Presentation: 2
+--slide 2
+Content
+1. Introduction
+
+2. Data Acquisition
+
+3. Design Development
+
+4. Material Testing
+
+5. Control Development
+
+6. Next Stage
+--slide 3
+1. Introduction 
+Development of a hand rehabilitation device for chronic stroke patients suffering flaccidity in the upper extremity 
+
+Aimed to support physiotherapists and home use
+
+This presentation will discuss the development process thus far and work planned in the future
+
+--slide 4
+2. Data Acquisition
+Data acquired:
+Range of motion
+Maximum force application by each joint
+
+Purpose
+
+Experiments done
+Hand motion capture & Validation
+Force measurement & Validation
+
+
+
+--slide 5
+Experiment Setup
+Testing jig (validation)
+Markers 
+--slide 6
+Force gauge validation
+Experiment Setup
+--slide 7
+Results
+Validation
+
+1. Motion capture
+the average percentage of error was 3.7%….. Accurate method
+
+2. Force measurement
+The average percentage of error was 12% … Accurate method (Actual and Measured values converge as weights increase)
+--slide 8
+Experiment results
+
+1. Range of motion (deg)
+
+
+
+
+
+2. Speed (deg/s)
+
+
+
+
+--slide 9
+Experiment results
+
+Level of torque that should not be exceeded
+
+
+
+
+
+
+--slide 10
+3. Design Development
+Middle, ring and pinky fingers.
+All three fingers are actuated using a servo motor and closed loop wire systems.
+Coupled joint motion for both flexion and extension.
+Wire transmission guided using centre of rotation of the joints.
+Hyper-flexion/extension prevented through length of the close loop wire transmission.
+Suitable for a range of hand sizes.
+
+
+
+
+--slide 11
+3. Design Development
+Index Finger
+MCP and PIP joints are actuated by means of servo motors and closed loop cable transmission.
+Torque produced is sufficient to actuate a flaccid hand
+ROM for the MCP is 80°and for the PIP is 90°.
+Mechanical stops prevent hyper-extension/flexion
+Adjustable to a range of hand sizes
+
+
+
+
+--slide 12
+4. Stress Concentration 
+--slide 13
+Mesh Sensitivity – Deformation
+
+Convergence verified by software
+--slide 14
+Mesh Sensitivity – Stress 
+
+Convergence verified by software
+--slide 15
+Fatigue Test Results
+Commonly used materials in literature – Aluminium and ABS
+Prototype - PLA
+--slide 16
+Material Selection
+Material Selection – Biocompatability, functionality and cost were considered.
+Aluminium Alloy for finger components
+Meets design life as safety factor 12.965>>1
+Can endure 100,000,000 cycles
+PLA as base
+Safety factor of 0.99947 therefore reduced design life – simulated under extremely high stress conditions
+Can endure 1,080,000 cycles
+Sterilisation technique
+Aluminium alloy – gamma irradiation with temperature labels
+PLA – ethylene oxide 
+           - incomplete sterilisation – insignificant interaction with body
+
+--slide 17
+Design Optimisation
+Deformation (mm)
+Equivalent von mises stress (Mpa)
+--slide 18
+5. Control Development
+--slide 19
+5. Control Development
+Electronic System Block Diagram (for an index finger)
+Computer: NI cRIO, NI 9401, NI 9215, NI 9263 modules
+Actuators: 
+Power HD 3688HB Servo motor 
+Corona Digital DS-929MG Servo motor.
+Sensors: 
+Vishay P11P potentiometer (x2)
+Interlink FSR (x4) 
+--slide 20
+5. Control DevelopmentPassive Assistive System
+--slide 21
+5. Control DevelopmentGUI of Passive Assistive System
+
+
+Click to add text
+Click to add text
+Actual angle
+
+Emergency Stop Button
+--slide 22
+6. Next Stage
+Finalize prototype
+
+Conduct final tests
+Range of motion – motion capture using OptoTrak
+Position sensing method – data taken from ROM tests will be compared to potentiometer data. 
+Torque – Torque produced at MCP and PIP will be tested. 
+Functionality - full device testing of task performance
+
+Safety tests/considerations
+ROM – ensure the device is not able to hyper-extend/flex joints
+Torque – ensure max torque transmitted does not exceed safe levels
+
+
+
+=====PPTX Presentations/Presentation 3 (Uni Background).pptx
+--slide 1
+Robotic Approach for the Rehabilitation of Hand Motion after a Stroke
+MECH 5030M Team Project
+--slide 2
+Project Team
+Marwan Ahmed
+(MEng Mechatronics)
+Motion and Force 
+Analysis
+
+Stephen Worsley
+(MEng Mechanical Engineering)
+Design
+Huynh Minh Tuan Le
+(MEng Mechatronics)
+Control Development
+
+Amritha Leo
+(MEng Medical Engineering)
+Requirements, Testing and Regulations
+ 
+
+
+Gabriela Noe
+(MEng Medical Engineering)
+Design
+--slide 3
+Contents
+Introduction
+Aim and objectives
+Preliminary testing
+Design process
+Control development
+Testing
+Conclusions
+Q&A session
+--slide 4
+Introduction
+Stroke is a cerebrovascular disease affecting 150,000 people annually in the United Kingdom1.
+77-85% suffer from hemiparesis of the upper limb1,2. 
+Flaccidity	   Muscle weakness and 		       loss of dexterity. 
+		   More common than
+		       spasticity3.
+
+1Sroke Association. 2016.
+2Holt, R. et al. 2007. 
+3Welmer, A-K. et al. 2006
+--slide 5
+Introduction
+Hand of Hope
+Rehab-Robotics Comp. Ltd.
+CyberGrasp
+CyberGrasp
+CyberGlove Systems LLC
+ExoHand
+Festo
+Robotic rehabilitation is a rapidly growing field providing an alternative treatment to conventional physiotherapy. 
+
+--slide 6
+Aim
+To design, build and test a portable hand robotic rehabilitation device prototype to provide active assistive movement therapy with a graphical user interface to post-stroke patients suffering from hand flaccidity. 
+--slide 7
+Conduct a hand motion and torque analysis to inform the design specification. 
+Follow a design process to develop a hand rehabilitation device.
+Develop a controller to provide hand rehabilitation motion.
+Test the device to ensure it meets the requirements.
+
+Objectives
+--slide 8
+Purpose of the analysis: Functionality and safety. 
+Hand motion captured using the Optotrak Certus and IREDs and analysed in MATLAB.
+
+
+
+
+
+ 
+Optotrak Certus
+Reference frame
+3D test jig
+Hand Motion Analysis 
+Preliminary Experiments
+--slide 9
+Hand Motion Analysis
+Experiment was conducted using a 3D printed test jig.
+The maximum uncertainty of the system was ±2.70˚.
+
+
+
+
+Motions based on ADLs.
+
+
+
+
+
+
+
+
+
+Grasped hand
+Tip pinch
+Relaxed hand
+Abducted hand
+Validation and Experiment
+
+Lin, H.T., Kuo, L.C., Liu, H.Y., Wu, W.L. and Su, F.C., 2011. The three-dimensional analysis of three thumb joints coordination in activities of daily living. Clinical Biomechanics. 26(4), pp.371-376. 
+--slide 10
+Hand Motion Analysis
+According to these results and literature findings4, the suggested velocity for actuation was between 3.00 - 3.79 rad/s.
+Results
+4Chen, F. et al., 2011. Human Hand: Kinematics, Statics and Dynamics. Portland, Politecnico di Torino.
+--slide 11
+Force Analysis
+The accuracy of the force gauge used was ±0.91 N
+
+Experiment Setup
+Validation Experiment
+Validation
+--slide 12
+Experiment setup 
+isometric view
+Experiment setup 
+front view
+Experiment setup 
+top view
+Force Analysis
+Experiment 
+--slide 13
+Force Analysis
+Results
+--slide 14
+
+Objectives
+Conduct a hand motion and torque analysis to inform the design specification. 
+Follow a design process to develop a hand rehabilitation device.
+Develop a controller to provide hand rehabilitation motion.
+Test the device to ensure it meets the requirements.
+--slide 15
+User Requirements
+Design 
+--slide 16
+Abstraction:	“Provide movement therapy to the hand 				   using a robotic device”
+Function Structure:
+Abstraction & Function Structure
+Design
+--slide 17
+Design 
+Working Principles
+--slide 18
+Overview
+Dorsally mounted 3D printed skeletal based orthosis components. 
+Attachment to the hand using Velcro
+Design based on the centre of rotation of each joint
+Individual components allow for adaptability of different hand sizes
+Designed to guide the flexion and extension RoM
+
+Design 
+3rd – 5th Fingers Module
+--slide 19
+Actuation and Transmission
+Combined actuation of three fingers using a DC servomotor
+Tendon-based closed loop system using Nylon cable to enable flexion and extension
+Mounted pulley system designed to pull only necessary cable length for motions 
+Motor torque determined using literature
+
+
+
+
+
+
+
+Design 
+3rd – 5th Fingers Module
+--slide 20
+Overview
+Radially mounted 3D printed exoskeleton structure. 
+Attached to the finger using Velcro straps.
+Device and anatomical centres of rotation easily aligned. 
+Proximal phalange length is adjustable with in a range.
+Design 
+Index Finger Module
+--slide 21
+Design to minimize any restriction of movement.
+Designed to enable at least the functional RoM to be reached. 
+Mechanical stops prevent actuation beyond safe angular rotations.
+Design 
+Index Finger Module
+--slide 22
+Actuation and Transmission
+Servomotors actuate the MCP and PIP joints.
+Closed loop Nylon tension cables allow flexion and extension to be achieve with a single motor. 
+Torque requirements determined using literature
+
+Position Sensing
+Potentiometers measure the angular position of the servomotors - related to the joint positions.
+Design 
+Index Finger Module
+--slide 23
+Hinge joints at the IP and MCP joints.
+Ball and socket joint aligned with the CMC adduction/abduction axis of rotation.
+Flexion/Extension at the CMC is constrained. 
+Proximal phalange and the first metacarpal are adjustable. 
+Mechanical stops incorporated.
+IP is the only active joint. Actuated with tension cables. 
+Design 
+Thumb Module
+--slide 24
+
+Conduct a hand motion and torque analysis to inform the design specification. 
+Follow a design process to develop a hand rehabilitation device.
+Develop a controller to provide hand rehabilitation motion.
+Test the device to ensure it meets the requirements.
+Objectives
+--slide 25
+Aim
+To actuate and control fingers position.
+To provide a Graphical User Interface (GUI).
+To provide a passive assistive exercises.
+
+Control
+System Overview
+Ethernet 
+Duty Cycle 
+Analog Voltage
+--slide 26
+Control
+Controller Requirements
+--slide 27
+CompactRIO 9024 platform:
+Real-time embedded controller.
+Control NI 9401 and 9215 modules through the FPGA interface.
+Communicate with desktop PC through the Ethernet cable. 
+Digital Input/Output module (NI 9401):
+Output PWM signal to the servo motors.
+Analog Input module (NI 9215):
+Obtain analogue voltage from the potentiometers.
+
+
+
+Control
+Electronic System
+--slide 28
+The Actuation Unit:
+The servo motors has an internal closed-loop control.
+The servo motors position can be controlled with PWM signal.
+Torques (at 6V): 0.27Nm (MCP) – 0.22Nm (PIP)*
+Speed (at 6V): 14.96rad/s (MCP) – 9.52rad/s (PIP)*
+The Position Sensing Unit:
+Linear potentiometers were used.
+Control
+Electronic System
+--slide 29
+Benchmark test of the servo motors:
+
+
+
+
+
+Determine ROM of the servo motors. 
+Using PWM signal to control angle and measure by the potentiometers.
+Inaccurately measurement due to the backlash in the gear system.
+
+Control
+Electronic System
+--slide 30
+Control
+Control System
+A closed-loop control system was initially developed. 
+Replaced with open loop control due to inaccuracies in position feedback caused by backlash errors. 
+
+Open loop control block diagram
+--slide 31
+Control
+Control System
+Using interpolation filter for trajectory planning
+Receive a desired angle signal  Convert to Duty Cycle signal
+Potentiometers read an actual angle and display on the GUI
+Result: stable and smooth motions
+--slide 32
+Control
+Graphical User Interface
+
+--slide 33
+
+Conduct a hand motion and torque analysis to inform the design specification. 
+Follow a design process to develop a hand rehabilitation device.
+Develop a controller to provide hand rehabilitation motion.
+Test the device to ensure it meets the requirements.
+Objectives
+--slide 34
+Testing
+--slide 35
+Index Finger Module Testing
+Two tests conducted:
+Range of Motion.
+Position measurement method.
+Both tested used Optotrak system with iREDs to measure angular position. 
+Similar method to preliminary tests. 
+
+--slide 36
+Range of Motion
+Angular position recorded with a clenched fist. 
+Results for PIP joint in close agreement with preliminary tests.
+MCP results could not  be compared due to different vector reference.
+Measured angular displacements taken as approximate maximums. 
+Theoretical workspace shows achievable ROM is similar to the functional ROM.
+
+
+Index Finger Module Testing
+--slide 37
+Position Sensing Tests
+Test conducted to assess the suitability of sensing method. 
+Concerns over accuracy due to gearing.
+Angular position recorded during grasp and release motion using both the potentiometer and the Optotrak system . 
+
+Index Finger Module Testing
+--slide 38
+Position Sensing Tests Results
+Tests showed a problem where the potentiometer measurement would drift.  
+This drifting pattern was consistent with both joints.
+Caused by gearing backlash. 
+Lower modulus gears would be a possible solution. 
+Index Finger Module Testing
+--slide 39
+Test setup:
+Six markers were placed like in Figure
+Position data captured by the Optotrak.
+Input angles: 30º, 50º, and 70º (MCP) and 50º, 70º, and 90º (PIP).
+Angular displacement was calculated from the position data in MATLAB. 
+
+Dorsum markers
+Proximal phalangeal markers
+Medial Phalangeal markers
+Functional Testing
+Control
+--slide 40
+The error increased as the desired angle increased.
+Smooth transient from 0º to 70º.
+With 70º as the maximum desired angle, the maximum actual angle was 63.53º.
+Did not exceed the maximum safety angle of 89.91º.
+
+Functional Testing
+Control
+--slide 41
+The error decreased as the desired angle increased.
+Smooth transient from 0º to 90º.
+With 90º as the maximum desired angle, the maximum actual angle was 106º.
+Did not exceed maximum safety angle of 114.10º.
+
+
+
+Functional Testing
+Control
+--slide 42
+Testing
+--slide 43
+Structural Testing
+Material Analysis and Selection
+--slide 44
+Structural TestingIndividual component- Finite Element Analysis
+--slide 45
+2.527E-6
+Structural Testing
+Initial Finite Element Analysis
+2.527E-6
+--slide 46
+Structural Testing
+3rd – 5th Fingers Module
+Design Optimisation
+--slide 47
+Structural Testing
+Revision Finite Element Analysis
+
+--slide 48
+Structural Testing
+Finite Element Analysis
+Results
+--slide 49
+Structural TestingExoskeleton – Finite Element Analysis
+--slide 50
+Structural Testing
+Design Optimisation
+Index Finger Module
+--slide 51
+Testing
+--slide 52
+Regulatory Considerations
+--slide 53
+Achievements:
+Exoskeleton prototype able to actuate the index. 
+The motion that can be executed is cylinder grasp and tip pinch.
+Testing showed the device is safe to use on the index.
+ 
+
+Conclusions
+--slide 54
+Further optimisation of design
+Development of control for remaining fingers
+Further functionality testing
+Manufacturing with suitable materials
+Development of a VR user interface
+Future Work
+--slide 55
+Thank you for your attention
+Questions?
+Special thanks to:
+Dr. Andrew Jackson
+Dr. Uriel Martinez Hernandez
+Dr. Nick Preston
+Sophie Mackower
+Jake Smith
+--slide 56
+Functional Testing
+Demo
+
+=====PPTX Presentations/Presentation 3 Shortened 2.pptx
+--slide 1
+Robotic Approach for the Rehabilitation of Hand Motion after a Stroke
+MECH 5030M Team Project
+--slide 2
+Project Team
+Marwan Ahmed
+(MEng Mechatronics)
+Motion and Force 
+Analysis
+
+Stephen Worsley
+(MEng Mechanical Engineering)
+Design
+Huynh Minh Tuan Le
+(MEng Mechatronics)
+Control Development
+
+Amritha Leo
+(MEng Medical Engineering)
+Requirements, Testing and Regulations
+ 
+
+
+Gabriela Noe
+(MEng Medical Engineering)
+Design
+--slide 3
+Contents
+Introduction
+Aim and objectives
+Preliminary testing
+Design process
+Control development
+Testing
+Conclusions
+Q&A session
+--slide 4
+Stroke is a cerebrovascular disease affecting 150,000 people annually in the United Kingdom1
+77-85% suffer from hemiparesis of the upper limb1,2 
+Flaccidity	   Muscle weakness and 		       loss of dexterity
+		   More common than
+		       spasticity3
+
+1Sroke Association. 2016.
+2Holt, R. et al. 2007. IEEE, Jun 12-15, pp.196-204. 
+3Welmer, A-K. et al. 2006. Cerebrovasc Dis., 21(4), pp.247-253.
+Introduction
+1
+--slide 5
+Hand of Hope
+Rehab-Robotics Comp. Ltd. 4
+CyberGrasp
+CyberGrasp
+CyberGlove Systems LLC6
+ExoHand
+Festo5
+Robotic rehabilitation is a rapidly growing field providing an alternative treatment to conventional physiotherapy
+
+Introduction
+4Tong et al. 2010. IEEE, Aug 31 – Sep 24, pp.3406-3409.
+5Festo Corporate, ExoHand. 2012.
+6CyberGlove Systems, CyberGrasp Overview. 2009.
+--slide 6
+Aim & Objectives
+“To design, build and test a prototype hand robotic rehabilitation device to provide active assistive movement therapy to stroke patients suffering from hand flaccidity”.
+1. Conduct a hand motion and torque analysis to inform the design      specification. 
+2. Follow a design process to develop a hand rehabilitation     device.
+3. Develop a controller to provide hand rehabilitation motion.
+4. Test the device to ensure it meets the requirements.
+--slide 7
+Purpose of the analysis: Functionality and safety. 
+Hand motion captured using the Optotrak Certus and IREDs and analysed in MATLAB.
+Maximum experimental uncertainty ± 2.70°
+
+
+
+
+
+
+ 
+Optotrak Certus
+Reference frame
+3D test jig
+Preliminary ExperimentsHand Motion Analysis
+--slide 8
+Grasped hand
+Tip pinch
+Relaxed hand
+Abducted hand
+Tested ADLs-based hand motions7
+Hand Motion Analysis
+7Lin, H. T. et al. 2011. Clin Biomech Contempt. 26(4), pp.371-376.
+--slide 9
+According to these results and literature findings8, the suggested velocity for actuation was between 3.00 - 3.79 rad/s.
+8Chen, F. et al., 2011. Human Hand: Kinematics, Statics and Dynamics. Portland, Politecnico di Torino.
+Hand Motion AnalysisResults
+--slide 10
+Experiment setup 
+isometric view
+Experiment setup 
+front view
+Experiment setup 
+top view
+Force AnalysisExperiment
+Maximum experimental uncertainty ± 0.91 N
+
+--slide 11
+Force AnalysisResults
+--slide 12
+DesignUser Requirements
+--slide 13
+DesignAbstraction & Function Structure
+“Provide movement therapy to the hand using a robotic device”
+
+--slide 14
+DesignWorking Principles
+--slide 15
+Overview
+Dorsally mounted skeletal based orthosis components. 
+Velcro finger attachments
+Design based on the centre of rotation of each joint
+Individual components allow for adaptability of different hand sizes
+Designed to guide the flexion and extension natural RoM
+
+Design3rd – 5th Fingers Module
+--slide 16
+Actuation and Transmission
+Combined actuation of three fingers using a DC servomotor
+Tendon-based closed loop system using Nylon cable to enable flexion and extension
+Mounted pulley system designed to pull required cable length for motions 
+Motor torque determined using literature
+
+
+
+
+
+
+
+Design3rd – 5th Fingers Module
+--slide 17
+Overview
+Radially mounted 3D printed exoskeleton structure. 
+Attached to the finger using Velcro straps.
+Device and anatomical centres of rotation easily aligned. 
+Proximal phalange length is adjustable with in a range.
+DesignIndex Finger Module
+--slide 18
+Designed to minimize any restriction of movement.
+Designed to allow at least the functional RoM to be reached. 
+Mechanical stops prevent actuation beyond safe angular rotations.
+DesignIndex Finger Module
+--slide 19
+Actuation and Transmission
+Servomotors actuate the MCP and PIP joints.
+Closed loop Nylon tension cables allow flexion and extension to be achieve with a single motor. 
+Torque requirements determined using literature.
+
+Position Sensing
+Potentiometers measure the angular position of the servomotors - related to the joint positions.
+DesignIndex Finger Module
+--slide 20
+Similar design to index finger module.
+Hinge joints at the IP and MCP joints.
+Ball and socket joint aligned with the CMC adduction/abduction axis of rotation.
+Flexion/extension at the CMC is constrained. 
+Proximal phalange and the first metacarpal are adjustable. 
+Mechanical stops incorporated.
+DesignThumb Module
+--slide 21
+Aim
+To actuate and control fingers position.
+To provide a Graphical User Interface (GUI).
+To provide a passive assistive exercises.
+
+Ethernet 
+Duty Cycle 
+Analog Voltage
+ControlSystem Overview
+--slide 22
+ControlController Requirements
+--slide 23
+CompactRIO 9024 platform:
+Real-time embedded controller.
+Control NI 9401 and 9215 modules through the FPGA interface.
+Communicate with desktop PC through the Ethernet cable. 
+Digital Input/Output module (NI 9401):
+Output PWM signal to the servo motors.
+Analog Input module (NI 9215):
+Obtain analogue voltage from the potentiometers.
+
+
+
+ControlElectronic System
+--slide 24
+The Actuation Unit:
+The servo motors has an internal closed-loop control.
+The servo motors position can be controlled with PWM signal.
+Torques (at 6V): 0.27Nm (MCP) – 0.22Nm (PIP)*
+Speed (at 6V): 14.96rad/s (MCP) – 9.52rad/s (PIP)*
+The Position Sensing Unit:
+Linear potentiometers were used.
+ControlElectronic System
+--slide 25
+Benchmark test of the servo motors:
+
+
+
+
+
+Determine ROM of the servo motors. 
+Using PWM signal to control angle and measure by the potentiometers.
+Inaccurately measurement due to the backlash in the gear system.
+
+ControlElectronic System
+--slide 26
+A closed-loop control system was initially developed. 
+Replaced with open loop control 
+Using interpolation filter for trajectory planning
+Receive a desired angle signal  Convert to Duty Cycle signal
+Potentiometers read an actual angle and display on the GUI
+Result: stable and smooth motions
+
+
+
+ControlControl System
+--slide 27
+Two tests conducted:
+Range of Motion.
+Position measurement method.
+Both tested used Optotrak system with iREDs to measure angular position. 
+Similar method to preliminary tests. 
+
+Index Finger Module Testing
+--slide 28
+Angular position recorded with a tight grasp pose. 
+Measured angular displacements used to find workspace. 
+Achievable ROM is similar to the functional ROM.
+
+
+Index Finger Module TestingRange of Motion
+--slide 29
+Test conducted to assess the suitability of sensing method. 
+Concerns over accuracy due to gearing.
+Angular position recorded during grasp and release motion using both the potentiometer and the Optotrak system . 
+
+Index Finger Module TestingPosition Sensing Tests
+--slide 30
+Tests showed a problem where the potentiometer measurement would drift.  
+This drifting pattern was consistent with both joints.
+Caused by gearing backlash. 
+Lower modulus gears would be a possible solution. 
+Index Finger Module TestingPosition Sensing Tests
+--slide 31
+Tests showed a problem where the potentiometer measurement would drift.  
+Caused by gearing backlash. 
+Index Finger Module TestingPosition Sensing Tests
+Test conducted to assess the suitability of sensing method. 
+Angular position recorded using both the potentiometer and the Optotrak system. 
+
+--slide 32
+The error increased as the desired angle increased.
+Smooth transient from 0º to 70º.
+With 70º as the maximum desired angle, the maximum actual angle was 63.53º.
+Did not exceed the maximum safety angle of 89.91º.
+
+Functional TestingControl
+--slide 33
+The error decreased as the desired angle increased.
+Smooth transient from 0º to 90º.
+With 90º as the maximum desired angle, the maximum actual angle was 106º.
+Did not exceed maximum safety angle of 114.10º.
+
+
+
+Functional TestingControl
+--slide 34
+Material selection coupled with a Finite Element Analysis was used to ensure structural integrity.
+Material selection test involved stress analysis and a cost per volume analysis.
+Structural TestingMaterial Analysis and Selection
+--slide 35
+Structural TestingIndividual component- Finite Element Analysis
+The structural testing was performed on the individual components and the exoskeleton as they were a safety hazard owing to their contact with the fingers.
+--slide 36
+3rd – 5th Fingers Module
+Structural TestingDesign Optimisation
+
+
+
+
+Fillet Structures
+--slide 37
+Optimised design
+212.74
+2.527E-6
+Structural TestingFinite Element Analysis
+--slide 38
+Optimised design
+FEA tested design
+The device had a maximum stress of 75MPa which was lower than the endurance limit of aluminium alloy. 
+Hence the component had a life cycle of infinity. 
+
+1.01E-10 Pa
+7.57E-5 Pa
+Structural TestingExoskeleton – Finite Element Analysis
+--slide 39
+Regulatory Considerations
+--slide 40
+Achievements:
+Exoskeleton prototype able to actuate the index. 
+The motion that can be executed is cylinder grasp and tip pinch.
+Testing showed the device is safe to use on the index.
+ 
+
+Conclusions
+--slide 41
+Further optimisation of design
+Development of control for remaining fingers
+Further functionality testing
+Manufacturing with suitable materials
+Development of a VR user interface
+Future Work
+--slide 42
+Thank you for listening
+Questions?
+--slide 43
+
+=====PPTX Presentations/Presentation 3 Shortened.pptx
+--slide 1
+Robotic Approach for the Rehabilitation of Hand Motion after a Stroke
+MECH 5030M Team Project
+--slide 2
+Project Team
+Marwan Ahmed
+(MEng Mechatronics)
+Motion and Force 
+Analysis
+
+Stephen Worsley
+(MEng Mechanical Engineering)
+Design
+Huynh Minh Tuan Le
+(MEng Mechatronics)
+Control Development
+
+Amritha Leo
+(MEng Medical Engineering)
+Requirements, Testing and Regulations
+ 
+
+
+Gabriela Noe
+(MEng Medical Engineering)
+Design
+--slide 3
+Contents
+Introduction
+Aim and objectives
+Preliminary testing
+Design process
+Control development
+Testing
+Conclusions
+Q&A session
+--slide 4
+“To design, build and test a prototype hand robotic rehabilitation device to provide active assistive movement therapy stroke patients suffering from hand flaccidity”.
+
+Conduct a hand motion and torque analysis to inform the design specification. 
+Follow a design process to develop a hand rehabilitation device.
+Develop a controller to provide hand rehabilitation motion.
+Test the device to ensure it meets the requirements.
+
+Aim & Objectives
+--slide 5
+Stroke is a cerebrovascular disease affecting 150,000 people annually in the United Kingdom1.
+77-85% suffer from hemiparesis of the upper limb1,2. 
+Flaccidity	   Muscle weakness and 		       loss of dexterity. 
+		   More common than
+		       spasticity3.
+
+1Sroke Association. 2016.
+2Holt, R. et al. 2007. 
+3Welmer, A-K. et al. 2006
+Introduction
+--slide 6
+Hand of Hope
+Rehab-Robotics Comp. Ltd.
+CyberGrasp
+CyberGrasp
+CyberGlove Systems LLC
+ExoHand
+Festo
+Robotic rehabilitation is a rapidly growing field providing an alternative treatment to conventional physiotherapy. 
+
+Introduction
+--slide 7
+Purpose of the analysis: Functionality and safety. 
+Hand motion captured using the Optotrak Certus and IREDs and analysed in MATLAB.
+
+
+
+
+
+ 
+Optotrak Certus
+Reference frame
+3D test jig
+Preliminary ExperimentsHand Motion Analysis
+--slide 8
+Grasped hand
+Tip pinch
+Relaxed hand
+Abducted hand
+Tested hand motions
+Hand Motion Analysis
+--slide 9
+According to these results and literature findings4, the suggested velocity for actuation was between 3.00 - 3.79 rad/s.
+4Chen, F. et al., 2011. Human Hand: Kinematics, Statics and Dynamics. Portland, Politecnico di Torino.
+Hand Motion AnalysisResults
+--slide 10
+Experiment setup 
+isometric view
+Experiment setup 
+front view
+Experiment setup 
+top view
+Force AnalysisExperiment
+--slide 11
+Force AnalysisResults
+--slide 12
+DesignUser Requirements
+--slide 13
+DesignFunction Structure
+--slide 14
+DesignWorking Principles
+--slide 15
+Overview
+Dorsally mounted 3D printed skeletal based orthosis components. 
+Attachment to the hand using Velcro
+Design based on the centre of rotation of each joint
+Individual components allow for adaptability of different hand sizes
+Designed to guide the flexion and extension RoM
+
+Design3rd – 5th Fingers Module
+--slide 16
+Actuation and Transmission
+Combined actuation of three fingers using a DC servomotor
+Tendon-based closed loop system using Nylon cable to enable flexion and extension
+Mounted pulley system designed to pull required cable length for motions 
+Motor torque determined using literature
+
+
+
+
+
+
+
+Design3rd – 5th Fingers Module
+--slide 17
+Overview
+Radially mounted 3D printed exoskeleton structure. 
+Attached to the finger using Velcro straps.
+Device and anatomical centres of rotation easily aligned. 
+Proximal phalange length is adjustable with in a range.
+DesignIndex Finger Module
+--slide 18
+Designed to minimize any restriction of movement.
+Designed to allow at least the functional RoM to be reached. 
+Mechanical stops prevent actuation beyond safe angular rotations.
+DesignIndex Finger Module
+--slide 19
+Actuation and Transmission
+Servomotors actuate the MCP and PIP joints.
+Closed loop Nylon tension cables allow flexion and extension to be achieve with a single motor. 
+Torque requirements determined using literature
+
+Position Sensing
+Potentiometers measure the angular position of the servomotors - related to the joint positions.
+DesignIndex Finger Module
+--slide 20
+Hinge joints at the IP and MCP joints.
+Ball and socket joint aligned with the CMC adduction/abduction axis of rotation.
+Flexion/extension at the CMC is constrained. 
+Proximal phalange and the first metacarpal are adjustable. 
+Mechanical stops incorporated.
+DesignThumb Module
+--slide 21
+Aim
+To actuate and control fingers position.
+To provide a Graphical User Interface (GUI).
+To provide a passive assistive exercises.
+
+Ethernet 
+Duty Cycle 
+Analog Voltage
+ControlSystem Overview
+--slide 22
+ControlController Requirements
+--slide 23
+CompactRIO 9024 platform:
+Real-time embedded controller.
+Control NI 9401 and 9215 modules through the FPGA interface.
+Communicate with desktop PC through the Ethernet cable. 
+Digital Input/Output module (NI 9401):
+Output PWM signal to the servo motors.
+Analog Input module (NI 9215):
+Obtain analogue voltage from the potentiometers.
+
+
+
+ControlElectronic System
+--slide 24
+The Actuation Unit:
+The servo motors has an internal closed-loop control.
+The servo motors position can be controlled with PWM signal.
+Torques (at 6V): 0.27Nm (MCP) – 0.22Nm (PIP)*
+Speed (at 6V): 14.96rad/s (MCP) – 9.52rad/s (PIP)*
+The Position Sensing Unit:
+Linear potentiometers were used.
+ControlElectronic System
+--slide 25
+Benchmark test of the servo motors:
+
+
+
+
+
+Determine ROM of the servo motors. 
+Using PWM signal to control angle and measure by the potentiometers.
+Inaccurately measurement due to the backlash in the gear system.
+
+ControlElectronic System
+--slide 26
+A closed-loop control system was initially developed. 
+Replaced with open loop control due to inaccuracies in position feedback caused by backlash errors. 
+
+Open loop control block diagram
+ControlControl System
+--slide 27
+Using interpolation filter for trajectory planning
+Receive a desired angle signal  Convert to Duty Cycle signal
+Potentiometers read an actual angle and display on the GUI
+Result: stable and smooth motions
+ControlControl System
+--slide 28
+Two tests conducted:
+Range of Motion.
+Position measurement method.
+Both tested used Optotrak system with iREDs to measure angular position. 
+Similar method to preliminary tests. 
+
+Index Finger Module Testing
+--slide 29
+Angular position recorded with a clenched fist. 
+Results for PIP joint in close agreement with preliminary tests.
+MCP results could not  be compared due to different vector reference.
+Measured angular displacements taken as approximate maximums. 
+Theoretical workspace shows achievable ROM is similar to the functional ROM.
+
+
+Index Finger Module TestingRange of Motion
+--slide 30
+Test conducted to assess the suitability of sensing method. 
+Concerns over accuracy due to gearing.
+Angular position recorded during grasp and release motion using both the potentiometer and the Optotrak system . 
+
+Index Finger Module TestingPosition Sensing Tests
+--slide 31
+Tests showed a problem where the potentiometer measurement would drift.  
+This drifting pattern was consistent with both joints.
+Caused by gearing backlash. 
+Lower modulus gears would be a possible solution. 
+Index Finger Module TestingPosition Sensing Tests
+--slide 32
+Tests showed a problem where the potentiometer measurement would drift.  
+Caused by gearing backlash. 
+Index Finger Module TestingPosition Sensing Tests
+Test conducted to assess the suitability of sensing method. 
+Angular position recorded using both the potentiometer and the Optotrak system. 
+
+--slide 33
+The error increased as the desired angle increased.
+Smooth transient from 0º to 70º.
+With 70º as the maximum desired angle, the maximum actual angle was 63.53º.
+Did not exceed the maximum safety angle of 89.91º.
+
+Functional TestingControl
+--slide 34
+The error decreased as the desired angle increased.
+Smooth transient from 0º to 90º.
+With 90º as the maximum desired angle, the maximum actual angle was 106º.
+Did not exceed maximum safety angle of 114.10º.
+
+
+
+Functional TestingControl
+--slide 35
+Material selection coupled with a Finite element Analysis was used to ensure structural integrity.
+Material selection test involved stress analysis and a cost per volume analysis.
+Structural TestingMaterial Analysis and Selection
+--slide 36
+Structural TestingIndividual component- Finite Element Analysis
+The structural testing was performed on the individual components and the exoskeleton as they were a safety hazard owing to their contact with the fingers.
+--slide 37
+3rd – 5th Fingers Module
+Structural TestingDesign Optimisation
+--slide 38
+Optimised design
+212.74
+2.527E-6
+Structural TestingFinite Element Analysis
+--slide 39
+Optimised design
+FEA tested design
+The device had a maximum stress of 75MPa which was lower than the endurance limit of aluminium alloy. 
+Hence the component had a life cycle of infinity. 
+
+1.01E-10 Pa
+7.57E-5 Pa
+Structural TestingExoskeleton – Finite Element Analysis
+--slide 40
+Regulatory Considerations
+--slide 41
+Achievements:
+Exoskeleton prototype able to actuate the index. 
+The motion that can be executed is cylinder grasp and tip pinch.
+Testing showed the device is safe to use on the index.
+ 
+
+Conclusions
+--slide 42
+Further optimisation of design
+Development of control for remaining fingers
+Further functionality testing
+Manufacturing with suitable materials
+Development of a VR user interface
+Future Work
+--slide 43
+Thank you for listening
+Questions?
+--slide 44
+
+=====PPTX Presentations/Presentation 3.pptx
+--slide 1
+Robotic Approach for the rehabilitation of hand motion after a stroke- hexora
+MECH 5030M Team Project
+--slide 2
+Project agenda
+
+--slide 3
+Introduction
+Stroke is a cerebrovascular disease affecting 150,000 people in the U.K. alone.
+
+85% suffer from hemiparesis. 
+
+Flaccidity  muscle weakness and loss of dexterity. 
+                    More common that spasticity.
+
+Robotic rehabilitation has improved success rates when compared to conventional treatment.
+--slide 4
+To design, build and test a portable prototype hand robotic rehabilitation device to provide active assistive movement therapy with a graphical user interface to post-stroke patients suffering from hand flaccidity. 
+aim
+--slide 5
+objectives
+Conduct a hand motion and torque analysis to formulate the design specification 
+Follow a design cycle a develop a hand rehabilitation robot
+Develop a control system to power the device and a user-interface for feedback
+Test the device to ensure it met the aim
+--slide 6
+objectives
+Conduct a hand motion and torque analysis to formulate the design specification 
+Follow a design cycle a develop a hand rehabilitation robot
+Develop a control system to power the device and a user-interface for feedback
+Test the device to ensure it met the aim
+
+--slide 7
+Hand motion & force analysis
+Purpose of the analysis: Functionality and safety
+
+Hand motion captured using the Optotrak Certus and IREDs and analysed in MATLAB
+
+
+
+
+
+ 
+Figure 1: Experiment Setup
+Figure 2: Reference frame and 3D test jig
+--slide 8
+Experiment was conducted using a 3D printed test jig
+
+The maximum uncertainty of the system was ±2.70˚
+validation
+Figure 3: 3D printed test jig
+--slide 9
+Motions inspired by ADLs
+Experiment
+Figure 4: Relaxed hand
+Figure 5: Grasped hand
+Figure 6: Tip pinch
+Figure 7: Abducted hand
+--slide 10
+According to these results and literature findings [a], the suggested velocity for actuation was between 3.00 - 3.79 rad/s 
+[a]=Chen, F. et al., 2011. Human Hand: Kinematics, Statics and Dynamics. Portland, Politecnico di Torino.
+Results
+--slide 11
+The accuracy of the force gauge used was ±0.91 N
+
+Validation
+Figure 8: Experiment Setup
+Figure 9: Validation Experiment
+--slide 12
+Experiment
+Figure 10:  Experiment setup isometric view
+Figure 11:  Experiment setup front view
+Figure 12:  Experiment setup top view
+--slide 13
+results
+--slide 14
+objectives
+Conduct a hand motion and torque analysis to formulate the design specification 
+Follow a design cycle a develop a hand rehabilitation robot
+Develop a control system to power the device and a user-interface for feedback
+Test the device to ensure it met the aim
+
+--slide 15
+Design development
+-  conceptual design flow chart
+--slide 16
+User requirements
+--slide 17
+Design
+
+--slide 18
+objectives
+Conduct a hand motion and torque analysis to formulate the design specification 
+Follow a design cycle a develop a hand rehabilitation robot
+Develop a control system to power the device and a user-interface for feedback
+Test the device to ensure it met the aim
+
+--slide 19
+control
+
+--slide 20
+objectives
+Conduct a hand motion and torque analysis to formulate the design specification 
+Follow a design cycle a develop a hand rehabilitation robot
+Develop a control system to power the device and a user-interface for feedback
+Test the device to ensure it met the aim
+
+--slide 21
+Testing
+--slide 22
+Functionality
+
+--slide 23
+Material Selection
+--slide 24
+Structural testing
+2.527E-6
+--slide 25
+Design optimisation
+--slide 26
+Revision testing
+--slide 27
+Analysis results
+--slide 28
+Exoskeleton Optimisation
+--slide 29
+Regulatory considerations
+--slide 30
+Conclusion 
+
+--slide 31
+Further work
+
+--slide 32
+Questions and Answers?
+
+=====PPTX Presentations/Project Poster.pptx
+--slide 1
+
+
+Supervisor: Dr. Andrew Jackson                                                    Mentors: Uriel Martinez-Hernandez. Nick Preston, Sophie Makower
+
+
+
+
+
+
+
+What is Stroke?
+
+
+Prototype Design 1
+Prototype Design 2
+
+Device Control
+
+
+
+
+
+Hand Motion Analysis
+Fig.01. Flexible prototype actuated with servomotors, using the mechanical properties of nylon to match the device’s range of motion to that of the hand. Movement guided using wires. 
+Fig.02. Rigid prototype actuated with servomotors, the movements of the device would be guided using wires through the structure designed using the centre of rotation of the joints. 
+Robotic Rehabilitation for Hand Impairment after Stroke
+Marwan Hekmat, Huynh Tuan Le, Amritha Leo, Gabriela Noe, Stephen Worsley
+It is a medical condition which occurs when blood flow to a portion of the brain is restricted by either a blood cloth or artery bursting causing a portion of the brain to die. 
+Difficulty with upper extremity movement occurs to 67% of patients which is normally treated with physiotherapy.
+Robotic devices aim to increase the amount of therapy available to these patients to regain movement and be able to perform activities of daily living.
+Analysing hand motion using Optotrak and MatLAB allowed us to identify the range of motion and the constraints of the hand. 
+This will be used to set the requirements for the robotic device and ensure its safety.
+Our measurements included flexion and extension angles of the joints of the index finger and thumb as well as angular velocity of a grasping movement.
+
+=====DOCX Team Report/L4 Team Report D3.docx
+Proforma Statement of Contribution
+SCHOOL OF MECHANICAL ENGINEERING
+TITLE OF PROJECT
+PRESENTED BY   
+OBJECTIVES OF PROJECT
+IF THE PROJECT IS INDUSTRIALLY LINKED TICK THIS BOX AND PROVIDE DETAILS BELOW
+THIS PROJECT REPORT PRESENTS OUR OWN WORK AND DOES NOT CONTAIN ANY UNACKNOWLEDGED WORK FROM ANY OTHER SOURCES.
+SIGNED							DATE	    25/04/2017
+		 M. Ahmed                     H. M. T. Le
+           A. Leo		  G. Noe	     S. Worsley
+A HELPING HAND: ROBOTIC REHABILITATION AFTER STROKE
+Marwan. Ahmed, Huynh M. T. Le, Amritha Leo, Gabriela A. Noe Ponce, Stephen Worsley
+Abstract
+Every year, stroke affects nearly 15 million people worldwide. The majority of survivors are left with some level of weakness in the upper limb and hand. Rehabilitation of hand motion is crucial for patients to be functional in daily life. A shortage of trained physiotherapist has created an opening for development of robotic rehabilitation devices. This study presents the design and development of a robotic rehabilitation prototype. A preliminary analysis of hand motion and forces was conducted to inform the design.  The proposed device was designed to allow grasping and pinching motions, with emphasis on precise motion of the index finger. A control system was implemented successfully, actuating the index finger for passive assist therapy. Furthermore, computational testing on the mechanical structure of the device was performed to inform material selection and design optimization for future development.  Additionally, functional testing of the index finger actuation and design was performed to validate the device. Lastly, implementation of the control system to the remaining four digits is the target of future work on the proposed prototype. 
+Keywords — Stroke, flaccid hand, robotic rehabilitation
+1. Background
+Stroke is a clinical syndrome affecting over 150,000 people per year in the United Kingdom alone . Aside from having a high mortality rate, strokes are the leading cause of long term disability in Europe. The neurological effects of stroke on survivors range from decrease or loss of motor and sensory skills to impaired vision, language and cognitive skills . Psychological effects such as depression have also been reported in up to 68% of all cases . From the neurological effects, hemiparesis, a neurological deficit causing weakness or partial paralysis down one side of the body, is the most common. 
+Hemiparesis of the upper-limb is reported to affect approximately 85% of stroke survivors and persist even five years after the stroke occurre. Hemiparesis of the upper limb, particularly of the hand, presents itself as flaccidity or spasticity. Spasticity is characterised by high muscle tone and activity, and velocity-dependent resistance to passive muscle stretch. For the hand, this presents as a tight fist or stiff fingers. Whereas, flaccidity is characterised by muscle weakness and loss of dexterity. Some studies have reported that spasticity had only occurred in 19% of the post-stroke patients when compared to flaccidity, during the sub-acute and chronic stages . 
+To further understand the effects of stroke, and understanding of hand anatomy is required. The anatomical structure of the hand is composed of the carpus making up the wrist and root of the hand and the five digits, which are labelled from one to five starting from the thumb. Digits 2-5 are made up from three bones named the proximal, medial and the distal phalanges. For these digits, the joints between the distal and middle phalanges are named distal interphalangeal joint (DIP) and the joint between the medial and proximal phalanges is called proximal interphalangeal joint (PIP). A third joint is located between the proximal phalanx and the metacarpal bone called metacarpal-phalangeal joint (MCP). The thumb differs from the rest of the digits as it does not have a medial phalanx, and hence only has an MCP joint and one interphalangeal (IP) joint. All IP joints are hinge joints, capable of only flexion and extension. The MCP joints are condyloid joints and are capable of flexion/extension, adduction/abduction and also a small degree of rotation. Each digit also has a carpometacarpal (CMC) joint where the metacarpals meet the distal carpal bones. For the thumb this joint is a saddle joint capable of flexion/extension, abduction/adduction and rotation unlike for the other digits which provide stability to the hand as appose to mobility.
+Hand function is considered one of the most important in daily life. Hand motion rehabilitation of stroke patients is commonly treated with physiotherapy. It has been shown that repeated motor practice of motions used in activities of daily living (ADLs) encourages a positive recovery outcome . The most common functional hand motions include tip pinch, palm pinch, lateral pinch, cylinder grip, spherical grip and power grip . It has also been shown that the amount of physiotherapy received directly affects the level of recovery. Treatment usually takes place in hospital during the acute stages, and at home or at rehabilitations centers once the patients have been discharged during the chronic stage . Due to the existing shortage of physiotherapists and the continuously increasing number of stroke patients requiring rehabilitation, there is a need for an alternative treatment method.
+Over the last decade, robotic hand rehabilitation devices have introduced as an alternative to physiotherapy to increase the quantity of therapy available to patients. Robotic rehabilitation devices can be classified based on their overall mechanical design as end-effectors or exoskeletons. End effector devices are those which only interact with the most distal part of the hand and tend to have simple structures. However, end-effectors increase the complexity of control when multiple degrees of freedom (DoF) are involved. Exoskeleton based devices are those with a structure mirroring the skeletal structure of the hand. These devices permit more precise motion control since all segments associated with a particular joint movement have a matching segment or component in the exoskeleton structure . Robotic devices can also be categorised based on the type of assistance they provide. Active assist devices are those allowing the user to perform the targeted motion and regulating the level of assistance based on the user’s performance. Passive assist devices are those in which the user remains inactive and the device produces the motion. Both types of assistance are employed by both physiotherapist and rehabilitation devices, however active assistance is encouraged to promote more improvement . The most common actuation methods in hand rehabilitation robotics are electric actuators and pneumatic actuators. Electric actuators are easy to control and reliable. Additionally, a wide variety of types are available in the market, such as DC and AC motors . Pneumatic actuators are known for having lower impedance and weight when compared to electric actuators. However this does not account for the compressors required to power them . Compressors are generally noisy and large in size, limiting the portability of devices. 
+Some of the current challenges facing development of new rehabilitation devices is the need to be portable and low cost in order to be used in a home environment or at rehabilitation centres. The aim of this study is to design, build and test a portable prototype hand robotic rehabilitation device to provide active assistive movement therapy with a graphical user interface to post-stroke patients suffering from hand flaccidity.
+2. Hand Motion & Force Analysis 
+Functionality and safety were the two essential aspects in this project. Hand motion and force analysis were required to ensure safety for the user and to avoid abnormal hand movement patterns. The findings of this analysis are discussed in the subsequent sections.
+2.1. Hand odel and nstraints
+2.1.1. Kinematic onfiguration of the hand
+A variety of hand models currently employed to perform kinematic hand motion analysis, using between 20 and 26 DoF, were reviewed . In order to achieve a balance between complexity and realism, a hand model with 24 DoF was used in this report . There were two kinematic configurations; one for digits 2-5 and one for the thumb. Digits 2-5 were represented by four links and five DoF . In these fingers, the MCP was modelled by a two DoF universal joint while the CMC, PIP and DIP had one DoF. The thumb was defined by three links and four DoF. The thumb’s CMC joint was modelled by a 2 DoF universal joint whereas MCP and IP joints are modelled by 1 DoF .
+2.1.2. Hand Constraints
+Hand and finger motion is constrained to a specific range or pattern of motion. The two main constraint types are: Type I static constraints. This refers to the limits of the range of motion (ROM) as a result of the hand’s anatomy. Assuming no external forces are applied and neglecting the thumb, the ROM can be summarized as follows :
+Type II dynamic constraints. This type of constraint refers to the limits imposed on the joints during motion and can be divided into intra-finger and inter-finger constraints. The intra-finger constraints are between the joints of the same finger. Based on the hand anatomy. For instance, to flex the DIP joints of the fingers, the PIP joints must also flex. Inter-finger constraints are the ones imposed on the joints between the fingers. For example, flexing the MCP of the index finger will naturally cause the MCP of the middle finger to flex as well.  The same is true for the middle, ring and little fingers.
+2.2. Hand otion nalysis
+A motion analysis was performed as part of this project to identify the maximum angles and range of velocities that could be achieved by each finger joint. The findings from this analysis alongside literature were used to define the limits of the ROM of the robotic device and select the appropriate actuators in order to ensure user’s safety.
+Optotrak Certus and InfraRed Emitting Diodes (IREDs) were used to capture the motion of the hand. A low sampling frequency of 100Hz was used as the signal amplitude of hand motion is maximum below 6Hz . The data recorded was processed using MATLAB. This experimental setup and MATLAB algorithm were validated by using a test rig of various known angles. A maximum error of 2.7° was found, making this method more accurate than a goniometer which is traditionally used to measure joint angles by surgeons and therapists. 
+In the ROM and velocity analysis, the index and thumb of four subjects were analysed. IREDs were placed on 3D printed rings on each of the phalangeal segments of both fingers. Subjects were required to perform pinching, abduction, and quick and slow grasps. The definition of slow was left unexplained to the subjects to determine what velocity was considered by people as slow in terms of hand motion. Figure 2.1 illustrates the maximum recorded angle for each joint of the index and thumb. 
+The low sampling size and existence of outliers skewed some of the results (thumb MCP, index Abduction & DIP) which was clearly indicated in the sample t-test. However, the values for the MCP & PIP of the index matched the population data (p=0.057 & 0.373). 
+Table 2.1 illustrates the results of angular velocity for fast and slow motion. The majority of the results matched the range of velocity found in literature. For simplicity, it was decided to actuate all finger joints of interest with the same velocity. According to these results and literature findings, the suggested velocity for actuation was between 3.00 - 3.79 rad/s .
+Table 2.1. Maximum and minimum Index joints angular velocity for fast and slow motion.
+2.3. Force nalysis
+A second analysis was performed to identify the limits of torque which can be applied by the actuators on the joints to avoid damage. The results from this experiment informed the selection of suitable actuators.
+For the force analysis, a manufactured test rig and a force gauge were used to measure the forces applied by each joint at the tip of the finger. The accuracy of the force gauge used was ±0.91 N. Five subjects were included in this experiment. Each subject was asked to place their arm on the test rig and apply the maximum force at their fingertip using each joint one at time. The minimum of the forces applied by all subjects were used to suggest the torque limits at the joints. As the proposed device aimed to address tip pinch and cylindrical grasp, it was essential that the MCP&PIP/IP be actuated individually. The maximum suggested limits for the torques were:
+; 
+The data acquired from both analysis provided an approximation of the statics and dynamics of the hand and the torque limits of the joints. Together with research of literature, the findings of both experiments were used to define the design requirements.
+3. Design
+3.1. Design ycle
+Pahl’s et al.  design process was selected as the most suitable approach to allow for a systematic engineering approach to find a solution to the project task.
+3.2. Requirements and pecifications
+A design specification document to inform the design of the device was formulated. It defined the criteria that needed to be met and is summarised below:
+The device must be: biomechanically compatible and match the ROM of the hand; lightweight to prevent user fatigue; portable to allow for usage at home and rehabilitation centres; and capable of providing prolonged active assist therapy addressing grasp and pinch. The device must be able to provide rehabilitation safely by preventing hyperextension using mechanical stops and safety features, such as an emergency stop button. The maximum torque applied to the MCP, PIP and DIP must not exceed 2Nm, 0.75Nm, and 0.25Nm respectively and the angular velocity cannot exceed 17.45rad/sec. 
+These user requirements were used as guidelines to design the rehabilitation device.
+3.3. Conceptual esign 
+3.3.1. Abstraction and function structures
+The task is defined in generic terms through abstraction, this was done to remove any presumed constraints. The essential problem was defined as: “Provide movement therapy to the hand using a robotic device.”
+From the abstracted definition, a function structure was created to highlight the essential functions, to which, solutions must be found. Figure 3.1 shows the system function structure. 
+3.3.2. Working rinciples 
+Possible solutions to each sub-function were researched and a table of working principles was created. Working structures were then created by combining different solutions to each sub-function. 
+3.4. Rejected oncepts
+During the conceptual and embodiment design stages, several combinations of working principles were investigated. After evaluation of all produced variants based on safety, layout, ergonomics, manufacturing and cost, a final design solution was found.
+3.5. Final esign rototype
+The final design can be broken in  modules, namely; the index finger module, digits 3-5 module orthosis and hardware module. These are described in more detail below. 
+3.5.1. Index inger Module
+An exoskeleton structure has been developed to facilitate independent actuation of the MCP and PIP joints. The structure was mounted to the radial side of the index finger to enable accurate alignment of rotational axes. The structure was made adjustable to accommodate a range of hand sizes. This was achieved by adjusting the relative distances between the MCP and PIP joints, and also the MCP to the dorsum orthosis. Actuation was implemented using DC servomotors with a cables/pulley transmission. Pulleys on the proximal and medial phalangeal sections were connected to pulleys fixed to the servomotor arms in a closed loop using low friction Nylon cables. This configuration enabled both flexion and extension of a joint to be actuated using a single servomotor, reducing both cost and weight. Contact between the cables and the exoskeleton structure has been minimized to reduce frictional losses. For the PIP joint, cables were guided as close as possible to the central axis of the exoskeleton, this ensured the relative distance between the joint and the actuator was constant throughout the ROM. This was considered essential if the closed loop transmission was to work effectively. 
+The angular displacement at each joint was determined by measuring the angular position of the servomotor shafts. A simple spur gear transmission, with 2:1 ratio, was used to rotate the potentiometers with the servomotor shaft. This gear ratio was deliberately chosen to increase the accuracy of the position measurement. Force sensing would be achieved using pressure resistive ink sensors placed between the finger and orthosis. However, in the current state, the device does not include force sensing. 
+3.5.. 3rd-5th Fingers odule
+For this module, independent exoskeletal components have been developed to allow flexion and
+extension actuation for all joints, as well as passive abduction and adduction motions about the MCP joint of each finger. The exoskeleton components were mounted on the dorsal side of the proximal, middle and distal phalanges of each finger. The use of independent components ensured adaptability to a wide range of hand sizes. Actuation of this module is performed using a DC servomotor with a similar cable/pulley transmission to the Index Finger Module. Three pulleys of different radii, one for each finger, were mounted on the shaft of the servomotor and low friction Nylon cables were used to create an individual closed loop per finger through the components. The cable guides in each component maintain the cable over the dorsal central axis of each digit. A block component which inserts into the most proximal component, limiting the translation of the cables was implemented as a mechanical stop to prevent hyperextension. The dorsal components were attached to the finger using straps of Velcro to further accommodate for different hand sizes. On the palmar side of each strap, the cables were guided back to the pulley system on the servomotor to enable flexion. 
+The motion of the three fingers in this module during both targeted movements (grasp and release and tip pinch) does not change significantly. For this reason, the use of a single actuator with three pulley loops enabled the desire motion using a single actuator, also reducing overall cost and weight. The motor used for this Module was a Bluebird 621DGM+HS DC servomotor able to provide a torque of up to 0.71 Nm. Overall angular displacement for this module was measured through a rotary potentiometer linked to the servomotor. The same type of potentiometers used in the Index Finger Module were used for this Module. Force sensing would be accomplished using readings of motor current and speed from the control module of the prototype. This module can be seen on Figure 3.3.
+3.5.. Dorsum and rist rthosis
+The orthosis serves three main purposes; to support the index finger exoskeleton structure, to provide support for the motor and position sensing mountings, and to secure the device comfortably to the hand/wrist. The dorsum and wrist orthosis was designed in three sections for development purposes but in detailed design these would be combined in to a single part. The orthosis has been designed with a 20° angle to hold the wrist at an angle which is approximately in the middle of the functional range. 
+4. Control
+4.1. Hardware Development
+4.1.1. Electronic system
+An electronic system was developed for the exoskeleton to implement a passive-assist control mode. This mode was to provide full assistance to the user’s hand while performing flexion and extension of the fingers. This required designing a closed loop controller to control the angular position and velocity. Therefore, the usage of angular position sensors was critical in providing position feedback. The electronic hardware system was divided into three units: a central control, an actuation, and position sensing unit. Figure 4.1 shows a diagram of the electronic system with respect to the system function structure. Based on the electronic system diagram, a list of hardware components was used in the project.
+4.1.2. Components used
+A field-programmable gate array (FPGA) was used for its high performance illustrated in its capability of running multiple commands In addition, the National Instrument Compact Reconfigurable Input/Output (NI cRIO) platform was used.  The NI cRIO combines embedded real-time technology providing an advantage in obtaining real-time data from the angular position sensors. Two C series modules, NI Digital Input/Output (DIO) 9401 and NI Analog Input (AI) 9215 module were added onto the  NI cRIO 9024 controller. As shown in Figure 4.1, the NI 9041 module was programmed in FPGA environment to Pulse Width Modulation (PWM) signal to the MCP and PIP motors respectively. Meanwhile, the NI 9215 module continuously acquired voltage data from the potentiometer of both MCP and PIP motors at a sampling rate of 20 ksps for channel 0 and 10 ksps for channel 1. The power supply unit (PSU) was used to power the servomotors and potentiometer at 6V and 5V respectively. Due to design constraints, the size of the potentiometers and the servomotors were to be minimal. Therefore, the Vishay P11P potentiometer, the Power HD 2688HB (MCP motor) and Corona Digital Servo DS-929MG (PIP motor) were chosen. 
+4.1.3 Benchmark testing
+A benchmark test was carried out to identify the range of motion (ROM) of both servomotors. In this test, the duty cycle of each motor was varied; however, the frequency of the PWM was set to 250Hz due to motor specifications. Additionally, the potentiometer was utilised to obtain the ROM values. The voltage level was measured, as the resistance of the potentiometer varied due to motion. This data was then converted to a value corresponding to the motor’s angle through two steps. First, the voltage was converted to a potentiometer angle. Second, the resultant angle was adjusted according to the 2:1 gear ratio to establish the motor angle. Table 4.1 displays the results of the benchmark test.
+4.2. Passive ssistive ystem
+A passive assistive system was implemented to perform flexion and extension exercises by controlling joint angles. The MCP and PIP joints of the index finger were actuated. A PID control algorithm was proposed to provide stability and respond to physical change in the patient’s finger. However, 
+Graphical User Interface layout (GUI)
+The GUI was designed to allow a user to input desired angles of MCP and PIP through a slider bar feature in the user-interface. Graphical representation detailing angle movements was designed to provide feedback and monitor progress.  Additionally, the user had the advantage of choosing the type of rehabilitation provided in terms of exercises; flexion/extension on the MCP, PIP or both the joints. Furthermore, motors speed can be controlled allowing the patient to practice in a comfortable pace. Lastly, both, a virtual and physical emergency stop button was incorporated, so the program could be stopped at any time. 
+4.3. Evaluation test with ptotrak
+Figure 4.3 and 4.4 display the angular displacement results obtained by the Optotrak. The maximum MCP value was approximately 66 degrees when tested with a desired angle of 70 degree when the mechanical stop set at 80 degree. This resulted in a percentage error of 5.7% under predicting the desired position. The maximum PIP value was approximately 106 degree which was more than the desired as well as the mechanical stop but less than the natural ROM Therefore, it was not a safety concern. The uncertainty between the Optotrak measured angle and the desired angle was calculated and presented in Table 4.2. The MCP error increased as the desired angle increased, but the measured angle was always below the desired angle. Meanwhile, the PIP error varied but the output angle was always above the desired. The error could be a result of the benchmark test in identifying the ROM of servomotors. 
+5. Testing
+5.1. Material election test
+In order to meet the design requirement of a lightweight and durable device, a material selection test was performed. The material was chosen based on two analyses; a finite element analysis (FEA) test and a cost per unit volume analysis. 
+Titanium alloy, aluminium alloy, ABS and PLA were included in the material selection test as they were commonly employed in previous rehabilitation robotsAlso, PLA was used to manufacture the device owing to popularity within 3D printing. 
+Aluminium alloy had a density of 27700Kg/m3and experienced a maximum stress of 75.773Mpa, which was under the endurance limit of aluminium alloy (86.2MPa). Hence, aluminium alloy was chosen as it met the design requirements and had a successful clinical history .
+5.2. Computational esting
+To confirm functionality, a deformation test was performed and, to confirm safety and reliability, a stress analysis was performed. These tests were conducted using finite element methods as it was a cost-effective method and provided solutions in a quick and efficient manner. 
+The components that were directly in contact with the fingers were tested because failure within these components would be a safety hazard to the patient. The individual component was tested under conditions of flexion and extension. Whereas, the exoskeleton was tested under different joint angles.
+5.2.1 Individual omponent
+Upon completion of the FEA tests on the individual component, the device experienced a high level of stress within the baseplate. This stress was transmitted to the bottom of the baseplate and proved to be a hazard for the patient, as shown in Figure 5.1.
+Owing to these stress concentrations, the device was optimised, changing the frame of the baseplate from a rectangular component to a cylindrical componentThis adaptation resulted in an evenly distributed stress map that would avoid stress concentrations on the bottom surface of the plate, as shown Figure 5.. Furthermore, the width of the curved component was reduced to make the device more lightweight and reduce material costs. Also, the regions that experienced stress concentrations were filleted to permit an even stress distribution. 
+These changes resulted in a stress reduction of 66%, therefore the maximum stress that this component would experience 70.432MPa under extension and 306.91MPa under flexion. Additionally, the maximum deformation experienced was 0.041mm. This was proven to fall within an acceptable range, as a safety factor of 2.204 was predicted. These findings suggested that the design would meet its design life of 1 billion cycles and not experience failure due to fatigue.
+Figure 5.1: Von-Mises Stress distribution of the baseplate.
+5.3 Regulatory Considerations
+Medical devices are directly related to the health and safety of a patient, therefore, it is governed by certain regulatory bodies. Unfortunately, as robotic rehabilitation is a developing field, standards exclusive to medical robots are currently unavailable. Hence, the hand rehabilitation robot adheres to standards of similar application. The material chosen was in accordance with ISO 10993. It was identified as a low risk material as only surface contact of under 24 hours will be experienced. Additionally, Aluminum alloy has previously been employed in rehabilitation robotics. Therefore, it can gain approval via the 510(k) premarket approval.
+ Robot rehabilitation devices were classified as IIa within Europe and as class II within the U.S. allowing a structured risk analysis procedure. 
+Additionally, a failure modes effects and analysis (FMEA) was performed on the device. Four major hazards were identified; hyperextension of the fingers, breaking the joints, electric shock and mechanical failure of the device. Hyperextension can be prevented via the use of potentiometers and mechanical stops embedded in the design of the device. Furthermore, an emergency stop button was integrated in the control system. 
+The device was designed to address flaccidity, therefore the motors employed produced low torque values. Hence, this hazard was deemed negligible. Also, to compensate for the electrical shock, the device was tested following the BS EN 60601-1:2006. Lastly, finite element methods were tested using an over predicted load. The device passed the structural testing. Therefore, the hazards were deemed negligible.  
+5.4. Functional esting
+5.4.1 Index Finger Module RM est 
+A test was conducted to assess the impact the index exoskeleton module had on the ROM. The experiment involved two test subjects, each of which were instructed to form a grasped hand pose while wearing the exoskeleton. The Optotrak motion capture system with infrared emitting diodes (IREDs) was used to measure the angular displacement at the MCP and PIP joints. This was done using direction vectors for the dorsum, proximal phalange and medial phalange were defined by placing two IREDs on each of the 3d printed components (see ). 
+The data from the motion capture was then processed in MATLAB. The angles at the MCP and PIP joints were calculated and taken to be the maximum functional angles for each of the joints while wearing the device. This was then compared to the natural ROM and functional ROM of the index finger found in literature . The theoretical workspace for the natural, function and the measured ROM, neglecting hyperextension and joint couplings, is shown in Figure 5.6.
+ As can be seen from Figure 5.6, the ROM while using the device is very similar to the function ROM of the index finger. This shows that the exoskeleton structure fulfils the ROM requirements. 
+5.4.2 Potentiometer ensing est
+Tests were conducted to assess the accuracy and suitability of the potentiometer and gearing combination. The Optotrak motion capture system and IREDs were used in the same way as in the index finger testing. The angular position was also measured using the potentiometer. Two test subjects were used for the test, however, due to erroneous results, only one test subjects data could be analysed. Each test subject was instructed to fully extend their hand before forming a fist and then opening their hand again. Hand motion was measured at 100Hz using both the Optotrak system and the potentiometers. This process was repeated three times for each subject. NI LabVIEW and a myDAQ was used to acquire voltage data. This voltage was then converted to angular position at the joints. The potentiometer data was incorrectly calibrated to 0° during the tests resulting in erroneous angular position data. This was corrected in MATLAB by removing the offset between the Optotrack and potentiometer data, thus allowing useful information to still be gathered. 
+The potentiometer data and the Optotrak data was then plotted together over time. The results from the three trials were all very similar. Figure 5.7 shows the results from trial 2. As can be seen the potentiometer for both the MCP and PIP joint tends to match the Optotrak data very closely during flexion. However, the measurements start to deviate when the velocity decreases to zero or the direction changes. 
+It is clear from igure 5.7 that the error increases over the duration of the test. This is further illustrated in igure 5.8 where the error between the Optotrak data and potentiometer data is shown over time. It can also be seen that the potentiometer measurements are constant for a brief period when the velocity is zero or when the direction changes. From igure 5.8 it is clear that the error between Optotrak and potentiometer data has increased significantly over the grasping motion.
+The results from this test shows that there are problems with this method of sensing. The period, when the potentiometer reading is constant, is probably a result of excessive backlash in the gears. This results in the measurement drifting significantly (approximately 4°) over the grasp-release cycle. This is not suitable as this error would compound over multiple cycles and thus accurate control would not be possible. A possible solution to this would be to use gears with a smaller module so that backlash is reduced. 
+6. Discussion
+7. Conclusion
+The team took a proactive approach to provide a solution for the disability suffered by the majority of stroke survivors. This was accomplished by providing a hand rehabilitation robot. The team was able to design, build, control and test an exoskeleton prototype that was capable of actuating digits 2 to 5 through a passive assist mode. Albeit, this was not the not the optimal solution. The device accomplished cylindrical grasp and was unable to achieve tip pinch. However, only the index finger could be actuated. The designed prototype and control had fulfilled the suggested RM for the index finger, 1100 and 900 for PIP and MCP respectively, which ensured the safety of the user. 
+Appendix I – Contract Performance Plan (CPP)
+Contract Performance Plan
+Robotic Approach for the Rehabilitation of Hand Motion after a Stroke
+A. Problem Overview
+Context
+Stroke is the second most common cause of death worldwide and a major cause of disability in adults. It poses a huge problem to society with treatment accounting for 4-5% of the total health care costs in the industrialized world (Donnan et al., 2008). As the population ages and survival rates increase, more people are living with disabilities resulting from stroke (Sivan et al., 2014). The range of disabilities is vast but one of the most common is hemiparesis (weakness down one side of the body). Between 70-85% of first strokes result in hemiparesis (Dobkin, 2004) which leads to limited mobility and difficulty completing basic activities of daily living (ADL’s). 
+Physiotherapy is often used to treat hemiparesis. Treatment will usually focus on neurofacilitation techniques, task-specific training and task-oriented training (Schaechter, 2004) with the aim of reducing impairment and improving functional use. The problem with traditional methods used to treat hemiparesis is that they are expensive and also labour intensive. As a result, patients often forego the required treatment – limiting functional recovery. In addition the treatment will often stop once the patient leaves hospital. Studies have shown that recovery is proportional to the intensity of treatment (Kwakkel et al., 1997), (Nijenhuis et al., 2015). In addition some studies suggest that functional recovery may also be made in chronic stroke patients with prolonged muscular flaccidity (Formisano et al., 2005). As such the need for rehabilitation devices that would enable the intensity of treatment to be increased and also enable patients to use at home would be extremely beneficial. 
+A prototype of a low cost portable device that will provide therapeutic exercise to the hand is to be developed. This will help further the effort being made to develop affordable robotic devices that aid the recovery of hemiparesis in patients who have suffered a stroke. 
+B. Aims and Objectives
+Aim
+The aim of the study was to design, build and test a functional and portable robotic device that would aid in post stroke rehabilitation of moderate hand impairment by providing a set of active assist exercises to patients while monitoring progress via a user-interface.
+Objectives
+Undertake research in order to understand the principles of strokes and their consequences, clinical need, current treatments and therapies, as well as wearable robotic devices and bio-mechatronics.
+Conduct a hand motion analysis using a motion capture system to contribute to the understanding of range of motion, degrees of freedom and forces exerted by the joints and muscles of the hand.
+Formulate a design specification using the information gathered from the literature.
+Follow a design cycle to generate a conceptual design on CAD that would enable patients to perform a set of exercises that help in their activities of daily living (ADL’s).
+Design an initial control system to power the device and feedback user interface.
+Finalise the design and manufacture and assemble a prototype comprising of:
+Hardware: An exoskeleton with comfortable materials suitable for varying hand sizes.
+Software: User-interface that would provide visual feedback along with a control mechanism that assessed progress and altered delivery of rehabilitation method accordingly.
+Develop a testing mechanism to ensure the efficient functioning of the device.
+Produce necessary risk assessment documentation coupled with a user guidelines
+Secondary Objectives
+Once the aims and primary objectives have been met, the team will consider pursuing the following objectives:
+Tackling more ADL exercises to improve patients performance
+Widen the group of stroke patients
+C. Work Packages
+A. Literature Review
+The team defined areas of research main relevant to this project, and they were divided between the members of the team. These included:
+Stroke 
+Physiotherapy
+Hand Exercises
+Performance Analysis
+Current Devices
+Designs
+Actuation Methods 
+Using this research, we will be able to define our targeted patients, the functions our device will perform, its design, control and manufacturing.  
+B. Motion Analysis
+In order to validate the use of data found in literature regarding hand strength and motion, Marwan, supported by Stephen, will lead a motion analysis using a motion capture system. Markers will be placed in relevant areas of the hand such as the joints, palm and fingers to characterise their movement. The force exerted by the fingers while performing a set of activities of daily living will be recorded using a force sensor. Data collected from this WP will be analysed and compared to that found in the literature. The findings from this package will be used to complete the design specification of our device.
+C. Product Design
+This Work Package includes the definition of the design specification for the final product, as well as the conceptual and CAD designs. The design aspect for this project will be led by Gaby and Stephen and supported by Steve. In the first stage of this WP, preliminary conceptual designs will be submitted by all members of the team. These designs will be analysed to find the best solution to our problem. The design will then be optimised taking into consideration cost effectiveness, material selection and preliminary control methods. The second stage of this WP will consist of defining the list of parts and developing the final conceptual design into a preliminary computational design using SolidWorks. The design will then be checked for errors and optimised in order to finalise the product.
+D. Material Selection
+Following Work Package C, materials for this device will be chose. This WP will be led by Amritha and supported by Gaby. For the material selection process, relevant literature will be analysed covering materials used on previous products and the human robot interface. Once the selection has been made, a finite element analysis of the materials will be completed in order to ensure they are able to fulfil their mechanical requirements. 
+F. Product Manufacture
+Using the finalised computer design of the product, all its parts will be sent to be manufactured. All the necessary components such as the actuators and sensors will be ordered. Once all parts arrive, the assembly of the device will begin. This WP will be supervised by Gaby. The device will undergo quality control by examining it and checking for errors. If any error is spotted, the necessary steps to fix it will be taken. 
+E. Control
+A control system will be developed using LabVIEW to power our device and provide the user with feedback. A user-interface will be used to provide visual feedback and the control mechanism will also assess the patient’s progress and alter the delivery of rehabilitation method accordingly. 
+G. Product Testing
+When the product has passed the initial quality control check of Work Package F, the device will be tested mechanically and in terms of control, functionality and safety. Testing will be led by Amritha. If any errors are spotted in either area of our device (mechanics or control), it will be sent back for further revision and correction of such errors.  Once the project team is satisfied with the performance of our device, it will undergo final testing and its documentation will be produced.
+D. Project Resources
+Based on the aim and objectives, the following list is not exhaustive but highlights the main resources required to deliver this project:
+Access to 3D printing facilities.
+Access to the Mechanical Workshop and Ability to use the tools available.
+Access to an agreed budget between the customer and ourselves. Budget will be used for:
+Purchase of components.
+3D printing (if required).
+Paper printing for required submissions to customer (Manual, specifications, etc.).
+Ability to order components throughout the duration of the project.
+Allocated Lab space that has essential electric requirements such as power supply as well as software like LabVIEW and MATLAB.
+Access to the Visualisation suite and usage of motion track systems.
+Ability to test the device on a group of patients (desirable to measure effectiveness).
+E. Deliverables
+The following table outlines the list of deliverable tasks for this project with estimated deadline for each one. A thorough chart is presented in Section H of this document.
+F. Project Team
+Areas of Expertise
+Marwan Ahmed
+I have chosen Mechatronics and Robotics because I have seen that the world constantly moving towards digitization and technology everyday if not every second.  Mechatronics is the “2nd generation” of engineering as it integrates mechanical, electronics and computing aspects. It has allowed me to develop a strong knowledge in control design and algorithm. Control is an essential aspect of the project as it is necessary to develop accurate controllers and appropriate trajectories to ensure patient’s safety and benefit. Throughout my university degree, I have learnt a variety of software relevant to control; namely, LabVIEW and MATLAB. Even though I was exposed to them in my 2nd year, I have used both in many projects throughout my degree for example, Buggy competition, Bachelor project (autonomous robot navigation with obstacle avoidance) and Bio-medical module (I created a Graphical User Interface on MATLAB to be used by surgeons to accurately measure Leg Length Inequality). Consequently, my contribution to this project will be in terms of hand motion analysis and control.
+Huynh Minh Tuan Le
+My contributions in this project are CAD, programming, and electronic circuit design. I have gained experiences specifically in CAD modelling while I was working on my third year project. In addition, I have obtained an associate certificate in SolidWorks. Plus, I also developed skill in microcontroller system programming such as embedded system in this project and practise LabVIEW programming in several in-course project; therefore, I am confident to implement a data acquisition program on LabVIEW. Furthermore, in my second year project, I developed a portable electronic device to encourage physical activities preventing muscle reducing through an interactive game. Through this project, I utilised an accelerometer for data acquisition of actions and convert them into points. In my third year project, I extend further in CAD design and control algorithm in mechatronic devices where is PID controller is a central development. With all of these skills, I am capable of tackle this project and design a reliable robotic device for a hand rehabilitation.
+Amritha Leo
+I will be heading the material selection and the final testing of our device. During my third year, I undertook a module that required me to design a device for Leg length inequality and I worked on a similar aspect for that project. I learned about the regulations and the standards associated with materials selection and testing. Furthermore, as a part of Finite Element Analysis, I conducted stress tests for a helicopter stabiliser, and studied the effects of varying materials. Both of these projects, have sculpted me for this role. 
+Additionally, as a part of my third year dissertation, I was required to develop a testing method to quantify and analyse the wear tracks of hip replacements. I developed creative solutions and different components to test a variety of methods to quantify the wear tracks. Hence, I am familiar with the testing stage of the design cycle and methods of incorporating necessary changes with minimum associated losses.
+Gabriela Noe
+The scope of this project I will be contributing to is design and manufacture, and taking part on the computational testing of materials. During the past 3 years of my degree I have been part of many projects in which I have taken the role of design using SolidWorks. Some of these design projects included an elastic band powered bio-arm, a buggy and a waterwheel competition, a medical device to measure leg length inequality during total hip replacement surgeries, and currently developing a surgical laparoscopic grasper device. I also have a strong background in finite element analysis after completing my Bachelor’s project using ABAQUS to investigate fixation plates for periprosthetic femoral fractures.
+Stephen Worsley
+The work that I will mainly be involved in will be design and control. I am well suited to these task as I have acquired associate developer certification in both LabVIEW and SolidWorks. I also have experience in designing and manufacturing robotic devices as well as using LabVIEW to acquire data from and also control these devices. During a summer internship I designed a prototype end-effector for a rehabilitation device and used LabVIEW to test the device. This work was continued for my third year project where I added an addition degree of freedom to the device which was actuated by a DC brushless motor. A control program for this device were then created in LabVIEW. In addition, I have also used LabVIEW extensively in another summer internship where I was using it to process and analyse data from a simulated surgery experiment.
+G. Ethics
+Considerations
+For every engineering project, the ethical impact should be considered. The aim of this project is to design a rehabilitation device for stroke patients. During the research and design stage of the project, no contact with either patients or their data will happen, nor will this stage would involve significant environmental impact. Hence this stage of the project will not require ethical approval. 
+Once a prototype is manufactured, it will be tested on members of the team for mobility and functionality. A risk assessment will be documented for this section of the project. The module under which this project has been assigned, already has been given University’s ethical approval. In addition, the project team has submitted an internal research ethics application form to the main supervisor of the project and the University’s ethics team (ethics reference: MEEC12-006). This device will not be trialled on patients, consequently no NHS ethical approval nor Health Research Authority approval would be required. 
+The project team is considering attending events from public stroke groups such as the Yorkshire Stroke Group. This might require contacting the local R&D ethics committee for approval. Any interactions with attendees of these events would require us to compile a consent form or confidentiality agreement. It is important to highlight that none of their personal information or data will be used for this project.
+H. Project Plan
+Gantt Chart
+The team plans to accomplish the project’s aim by following the Gantt Chart below:
+I. Risk Analysis
+Project Risk Assessment
+References:
+Donnan, Geoffrey A., Marc Fisher, Malcolm Macleod, and Stephen M. Davis. "Stroke." (2008).
+Dobkin, B. H. (2004). Strategies for stroke rehabilitation. The Lancet Neurology,3(9), 528-536.
+Kwakkel, G., Wagenaar, R. C., Koelman, T. W., Lankhorst, G. J., & Koetsier, J. C. (1997). Effects of intensity of rehabilitation after stroke a research synthesis. Stroke, 28(8), 1550-1556.
+Nijenhuis, S.M., Prange, G.B., Amirabdollahian, F, Sale, P, Infarinato, F, Nasr, N, Mountain, G, Hermens, H.J., Stienen, A.H.A., Buurke, J.H. and Rietman, J.S. 2015. Feasibility study into self-administered training at home using an arm and hand device with motivational gaming environment in chronic stroke. Journal of NeuroEngineering and Rehabilitation. DOI 10.1186/s12984-015-0080-y
+Schaechter, J. D. (2004). Motor rehabilitation and brain plasticity after hemiparetic stroke. Progress in neurobiology, 73(1), 61-72.
+Sivan M, Gallagher J, Makower S, Keeling D, Bhakta B, O’Connor RJ, et al. Home-based Computer Assisted Arm Rehabilitation (hCAAR) robotic device for upper limb exercise after stroke: results of a feasibility study in home setting. J Neuroeng Rehabil. 2014;11(1):163. doi:10.1186/1743-0003-11-163.
+Appendix II – Request for Proposal (RFP)
+1. Introduction
+This document presents the RFP that all Level 4 project teams will employ in the production of their specific Contract Performance Plans (CPP). This document should be read alongside the MECH5030M module documentation.
+Stroke is one of the largest causes of disability in the uk with approximately 152,000 strokes occurring each year. The outcomes of stroke are wide ranging, affecting upper limb movement, gait, and cognitive ability amongst others. Around 77% of survivors suffer from a level of movement deficit in the upper-limb, this weakness in the arm and hand can result in a lack of functional dexterity. Impaired fine motor skills make it difficult to engage in activities of daily living such as eating or dressing. Physiotherapy aims to assist recovery after stroke through the principle of motor learning, whereby patients aim to regain lost function by undertaking frequent, repetitive, task-specific exercise. Robotic systems are seen as a method of improving patient outcome by delivering addition exercise, however most systems focus on gross arm movements but ignore the function of the hand which is key for undertaking key activities of daily living.
+The aim of this project is to develop a reliable, low cost and portable prototype of a wearable robotic device for the rehabilitation of hand. The robot will assist stroke patients to undertake hand manipulation exercises as part of their rehabilitation, promoting the recovery of hand function. 
+By using assistive robotics and haptic feedback technology it is possible to guide a patient’s hand such that normal patterns of movement are promoted. As the patient improves, it should be possible to reduce the assistance to allow the patient to develop their own independent movements.
+The team will design a mechanism that will attach to a patients hand and provide some kind of assistive force to allow practice of appropriate movement patterns. These appropriate movement patterns may be derived from literature or through use of motion capture technology. Analysis of this data will inform a detailed specification of the system, including the required speed of actuation, accuracy and range of motion. 
+The team will then look at appropriate actuation methods and create a concept design suitable for manufacture. Software will be developed in LabVIEW and tested on the manufactured device to ensure safe accurate control of the system.
+The outcome of the project will be a prototype robotic system that can assist an adult with stroke to undertake standardised exercise tasks. An accompanying user interface will provide the user with task instructions and performance feedback.
+The School, as customer, reserves the right to amend this document if circumstances demand.
+2. Technical Expectations
+It is expected that the project team will:
+Undertake a literature review, looking at relevant areas such as physiotherapy of the hand, stroke, robotic rehabilitation, human/robot interaction and specifics of actuation methods.
+Understand the dynamics of hand movement undertaking everyday tasks to ascertain the kinematics and kinetics the system is required to reproduce.
+Undertake a design process, including stakeholders, to develop a system that is fit for purpose, i.e. can be attached to a patient’s hand and provide assistive movement exercises.
+Manufacture and test the device within a lab setting, assessing its safety and suitability for use with patients.
+Create a user interface for the device, allowing the user to interact with the system in a fun and motivating manner.
+Document procedures, processes, contacts, and all other important information in a structured manner (e.g. as a bill of materials, instruction booklet etc…).
+3. Contract Performance Plan (CPP)
+The contract performance plan is a detailed description of how you will accomplish the proposed project.  It will:
+Define your project team structure, including individual responsibilities and duties.
+Define the overall aims and objectives of the project.
+Define the specific aims and objectives of the project team.
+Define the technical work the project team will undertake to complete the project, detailing specific tasks to be accomplished as itemised Work Packages (WP) as well as who will be responsible for leading each WP. 
+Detail the Project Plan for the project team in the form of a bar or Gannt chart, defining when each WP will start and finish, important deadlines, major milestones and WP interdependencies.  
+Once approved no change to the CPP will be allowed without explicit customer approval.  If change is required customer approval (i.e. the School) should be sought at the earliest possible opportunity.
+4. Reporting Requirements
+The following are required:
+Project team to report weekly in meetings with the project supervisor(s).
+A CPP for the project team should be submitted by the end of Week 6 detailing the team structure including all project team member responsibilities and associated work packages.  It should also include a detailed Project Plan (Gantt Chart) for the project team and incorporate a Risk Management Plan as per the instructions for MECH5030. Where there are interdependencies with team members, relevant milestones should be included.
+Brief written progress reports and/or powerpoint presentations are required to coincide with the arranged progress meetings with external stakeholders (Nick Preston and Dan Vickers). These reports will summarise the status of the project team; any significant deviation from the Project Plan should be addressed with a recovery plan to meet the programme milestones.
+A written final report for the team is required as well as individual student reports detailing their contribution to the project according to the instructions for MECH5030. The reports shall (i) detail all significant technical and organisational decisions and outcomes reached within the project, (ii) benchmark the performance of the team against the CPP, (iii) detail lessons learned and recommendations for future development, and (iv) outline the handover arrangements (Knowledge Transfer) for future project development.
+A formal oral presentation of the final outcome of the project will be required.
+Each team member must keep a log book detailing their personal contributions to the team project.  These log books must be submitted with the final individual and team reports. 
+Appendix III – Risk Assessment
+Appendix IV – Meeting Records
+
+=====DOCX Team Report/Team Report - Design.docx
+3. Design
+3.1. Design Cycle
+Pahl and Beitz
+3.2. Requirements and Specifications
+User requirements
+Device specifications
+3.3. Conceptual Design
+Abstraction
+Function structures
+Working principles 
+3.4 Embodiment Design
+Variant selection
+Failed attempts
+3.5. Final Design Prototype
+3.5.1 Thumb Module
+3.5.2. Index Finger Module
+3.5.3. 3rd-5th Fingers Module
+3.5.4. Wrist Orthosis
+3.6. Actuation
+3.5.1. Index Finger Module
+3.5.2. 3rd-5th Fingers Module
+REFERENCES
+
+=====PDF Presentations/Robotic Rehabilitation After Stroke Poster.pdf
+Supervisor: Dr. Andrew Jackson                                                    Mentors: Uriel Martinez -Hernandez. Nick Preston, Sophie Makower
+Admittance Control
+• Suitable for an environment comprising of stiffness 
+and damping elements
+• Requires addition of a force sensor based on robotic 
+devices that involve measurements of link positions
+• Admittance control allows freedom in design 
+because the tip inertia and the backlash is 
+drastically reduced
+• Increase in gain position controller to compensate 
+for the external force disturbances
+What is Stroke?
+Prototype Design 1 Prototype Design 2
+Device Control
+Hand Motion Analysis
+Fig.01. Flexible prototype actuated with servomotors, using the 
+mechanical properties of nylon to match the device’s range of 
+motion to that of the hand. Movement guided using wires. 
+Fig.02. Rigid prototype actuated with servomotors, the 
+movements of the device would be guided using wires through the 
+structure designed using the centre of rotation of the joints. 
+Robotic Rehabilitation for Hand Impairment after Stroke
+Marwan Hekmat, Huynh Tuan Le, Amritha Leo, Gabriela Noe, Stephen Worsley
+• It is a medical condition which occurs when blood flow to a portion of the brain is 
+restricted by either a blood cloth or artery bursting causing a portion of the brain to die. 
+• Difficulty with upper extremity movement occurs to 67% of patients which is normally 
+treated with physiotherapy.
+• Robotic devices aim to increase the amount of therapy available to these patients to 
+regain movement and be able to perform activities of daily living.
+• Analysing hand motion using Optotrak and MatLAB 
+allowed us to identify the range of motion and the 
+constraints of the hand. 
+• This will be used to set the requirements for the 
+robotic device and ensure its safety.
+• Our measurements included flexion and extension 
+angles of the joints of the index finger and thumb 
+as well as angular velocity of a grasping movement.
+0
+200
+400
+600
+800
+0.50.60.70.80.9 1 1.11.21.31.41.5
+Angular velocity (deg/s)
+Elapsed time (s)
+MCP Angular velocity vs Elapsed 
+time
+Acutal
+Data
+Filtered
+Data
+
+
+=====PDF Presentations/Robotic Rehabilitation After Stroke.pdf
+Robotic Approach for the Rehabilitation 
+of Hand Motion after a Stroke
+MECH 5030M Team Project
+Project Team
+Marwan Ahmed
+(MEng Mechatronics)
+Motion and Force 
+Analysis
+Stephen Worsley
+(MEng Mechanical Engineering)
+Design
+Huynh Minh Tuan Le
+(MEng Mechatronics)
+Control Development
+Amritha Leo
+(MEng Medical Engineering)
+Requirements, Testing and 
+Regulations
+Gabriela Noe
+(MEng Medical Engineering)
+Design
+
+Contents
+1. Introduction
+2. Aim and objectives
+3. Preliminary testing
+4. Design process
+5. Control development
+6. Testing
+7. Conclusions
+8. Q&A session
+“To design, build and test a prototype hand robotic 
+rehabilitation device to provide active assistive movement 
+therapy stroke patients suffering from hand flaccidity”.
+• Conduct a hand motion and torque analysis to inform the 
+design specification.
+• Follow a design process to develop a hand rehabilitation 
+device.
+• Develop a controller to provide hand rehabilitation motion.
+• Test the device to ensure it meets the requirements.
+Aim & Objectives
+• Stroke is a cerebrovascular disease 
+affecting 150,000 people annually in the 
+United Kingdom1.
+• 77-85% suffer from hemiparesis of the 
+upper limb1,2.
+• Flaccidity →   Muscle weakness and 
+        loss of dexterity.
+  →   More common than
+         spasticity3.
+1Sroke Association. 2016.
+2Holt, R. et al. 2007. 
+3Welmer, A-K. et al. 2006
+Northern Ireland*
+34,467
+Wales
+64,641
+Scottland
+121,109
+Number of stroke survivors 
+(2014/15)
+England
+981,836
+1,202,053 
+stroke 
+survivors
+ in total
+Introduction
+Hand of Hope
+Rehab-Robotics Comp. Ltd.
+CyberGrasp
+CyberGrasp
+CyberGlove Systems LLC
+ExoHand
+Festo
+• Robotic rehabilitation is a rapidly growing field providing an 
+alternative treatment to conventional physiotherapy. 
+Introduction
+• Purpose of the analysis: Functionality and safety. 
+• Hand motion captured using the Optotrak Certus and IREDs 
+and analysed in MATLAB.
+Optotrak Certus Reference frame 3D test jig
+Preliminary Experiments
+Hand Motion Analysis
+Grasped hand Tip pinchRelaxed hand Abducted hand
+Tested hand motions
+Hand Motion Analysis
+• According to these results and literature findings4, the suggested 
+velocity for actuation was between 3.00 - 3.79 rad/s.
+89.91
+114.1
+58.69
+40
+52.03
+71.55
+58.67
+0
+20
+40
+60
+80
+100
+120
+140
+MCP IP/PIP DIP Abduction
+Angle (degrees)
+Joint/motion
+Maximum Flexion of the Joints
+Index
+Thumb
+4Chen, F. et al., 2011. Human Hand: Kinematics, Statics and Dynamics. Portland, Politecnico di Torino.
+Hand Motion Analysis
+Results
+Experiment setup 
+isometric view
+Experiment setup 
+front view
+Experiment setup 
+top view
+Force Analysis
+Experiment
+1.03
+1.96 1.88
+1.37
+0.89
+0.31
+0.61 0.63 0.57
+0.31
+0.19 0.20 0.17 0.10
+0.00
+0.50
+1.00
+1.50
+2.00
+2.50
+Thumb Index Middle Ring Little
+Torque (N.m)
+Finger
+Maximum Torque Limit 
+MCP
+IP/PIP
+DIP
+Force Analysis
+Results
+Need Mechanical Definition
+Biomechanically 
+compatible Match the anatomical ROM of the hand
+Lightweight Density <5000 Kg/m3
+Provide rehabilitation Achieve cylindrical grasp and tip pinch
+Safety
+Implement mechanical stops to prevent 
+hyperextension
+Maximum torque applied to MCP , PIP & DIP 
+must not exceed 2Nm, 0.75Nm, and 0.25Nm in 
+order to not break the fingers.
+Design
+User Requirements
+Design
+Function Structure
+ Solution
+Sub-function 1 2 3 4
+Convert Energy to 
+Force/Movement
+Mechanical 
+Structure
+Rigid 
+exoskeleton
+Flexible 
+exoskeleton
+Skeletal based 
+orthosis -
+Transmission Cable and pulleys Gearing Linkages or sliding mechanism -
+Actuation DC servomotor DC rotary motor DC linear motor -
+Measure Position Pull string potentiometers Rotary potentiometers Slide potentiometers Optical (absolute) encoders
+Measure Force
+Motor current 
+and speed 
+measurements
+Pressure 
+sensitive ink 
+sensors
+- -
+Design
+Working Principles
+Overview
+• Dorsally mounted 3D 
+printed skeletal based 
+orthosis components. 
+• Attachment to the hand 
+using Velcro
+• Design based on the centre 
+of rotation of each joint
+• Individual components 
+allow for adaptability of 
+different hand sizes
+• Designed to guide the 
+flexion and extension RoM
+Motor and sensor 
+mounting
+Exoskeletal 
+components
+Pulley 
+system
+Cable 
+guides
+Design
+3rd – 5th Fingers Module
+Actuation and Transmission
+• Combined actuation of three fingers 
+using a DC servomotor
+• Tendon-based closed loop system 
+using Nylon cable to enable flexion 
+and extension
+• Mounted pulley system designed to 
+pull required cable length for 
+motions
+• Motor torque determined using 
+literature
+Design
+3rd – 5th Fingers Module
+Overview
+• Radially mounted 3D printed 
+exoskeleton structure.
+• Attached to the finger using 
+Velcro straps.
+• Device and anatomical centres 
+of rotation easily aligned.
+• Proximal phalange length is 
+adjustable with in a range.
+Design
+Index Finger Module
+• Designed to minimize any restriction 
+of movement.
+• Designed to allow at least the 
+functional RoM to be reached. 
+• Mechanical stops prevent actuation 
+beyond safe angular rotations.
+Design
+Index Finger Module
+Actuation and Transmission
+• Servomotors actuate the MCP and 
+PIP joints.
+• Closed loop Nylon tension cables 
+allow flexion and extension to be 
+achieve with a single motor. 
+• Torque requirements determined 
+using literature
+Position Sensing
+• Potentiometers measure the 
+angular position of the servomotors 
+- related to the joint positions.
+Design
+Index Finger Module
+• Hinge joints at the IP and MCP 
+joints.
+• Ball and socket joint aligned with 
+the CMC adduction/abduction axis 
+of rotation.
+• Flexion/extension at the CMC is 
+constrained. 
+• Proximal phalange and the first 
+metacarpal are adjustable. 
+• Mechanical stops incorporated.
+Design
+Thumb Module
+Aim
+• To actuate and control fingers position.
+• To provide a Graphical User Interface (GUI).
+• To provide a passive assistive exercises.
+Ethernet 
+Duty Cycle 
+Analog Voltage
+Control
+System Overview
+Requirements Demand/Wish
+Torque • MCPmax: 1.96Nm • PIPmax: 0.61Nm D
+Speed • Both MCP and PIP: • 3.00 < ω < 3.79 rad/s D
+Range of Motion 
+(ROM)
+• 0° < θMCP < 80°
+• 0° < θPIP < 90° D
+Controller • Using a closed-loop control with PID controller. D
+Control
+Controller Requirements
+CompactRIO 9024 platform:
+• Real-time embedded controller.
+• Control NI 9401 and 9215 modules through the 
+FPGA interface.
+• Communicate with desktop PC through the 
+Ethernet cable. 
+Digital Input/Output module (NI 9401):
+• Output PWM signal to the servo motors.
+Analog Input module (NI 9215):
+• Obtain analogue voltage from the 
+potentiometers.
+Control
+Electronic System
+The Actuation Unit:
+• The servo motors has an internal closed-loop 
+control.
+• The servo motors position can be controlled with 
+PWM signal.
+• Torques (at 6V): 0.27Nm (MCP) – 0.22Nm (PIP)*
+• Speed (at 6V): 14.96rad/s (MCP) – 9.52rad/s 
+(PIP)*
+The Position Sensing Unit:
+• Linear potentiometers were used.
+Control
+Electronic System
+Benchmark test of the servo motors:
+• Determine ROM of the servo motors. 
+• Using PWM signal to control angle and measure by the 
+potentiometers.
+• Inaccurately measurement due to the backlash in the gear system.
+Model Minimum Maximum
+MCP motor
+ROM (°) 0 120.49
+Duty cycle (%) 22.5 52.5
+PIP motor
+ROM (°) 0 150
+Duty cycle (%) 16 60
+Control
+Electronic System
+• A closed-loop control system was initially developed. 
+• Replaced with open loop control due to inaccuracies in position 
+feedback caused by backlash errors. 
+Open loop control block diagram
+Control
+Control System
+• Using interpolation filter for trajectory planning
+• Receive a desired angle signal → Convert to Duty Cycle signal
+• Potentiometers read an actual angle and display on the GUI
+• Result: stable and smooth motions
+Control
+Control System
+• Two tests conducted:
+o Range of Motion.
+o Position measurement method.
+• Both tested used Optotrak system 
+with iREDs to measure angular 
+position. 
+• Similar method to preliminary 
+tests. 
+Index Finger Module Testing
+• Angular position recorded with a 
+clenched fist. 
+• Results for PIP joint in close 
+agreement with preliminary tests.
+• MCP results could not  be compared 
+due to different vector reference.
+• Measured angular displacements 
+taken as approximate maximums. 
+• Theoretical workspace shows 
+achievable ROM is similar to the 
+functional ROM.
+Index Finger Module Testing
+Range of Motion
+• Test conducted to assess the suitability of sensing method. 
+• Concerns over accuracy due to gearing.
+• Angular position recorded during grasp and release motion using both 
+the potentiometer and the Optotrak system . 
+Index Finger Module Testing
+Position Sensing Tests
+• Tests showed a problem where the potentiometer measurement 
+would drift.  
+• This drifting pattern was consistent with both joints.
+• Caused by gearing backlash. 
+• Lower modulus gears would be a possible solution. 
+Index Finger Module Testing
+Position Sensing Tests
+• Tests showed a problem where the potentiometer measurement 
+would drift.  
+• Caused by gearing backlash. 
+Index Finger Module Testing
+Position Sensing Tests
+• Test conducted to assess the suitability of sensing method. 
+• Angular position recorded using both the potentiometer and the 
+Optotrak system. 
+• The error increased as the desired 
+angle increased.
+• Smooth transient from 0º to 70º.
+• With 70º as the maximum desired 
+angle, the maximum actual angle 
+was 63.53º.
+• Did not exceed the maximum 
+safety angle of 89.91º.
+Desired 
+Angle (deg)
+MCP Error 
+(deg)
+MCP Error
+ (%)
+30.00 4.4 -14.67
+50.00 5.57 -11.14
+70.00 6.47 -9.24
+Functional Testing
+Control
+• The error decreased as the desired 
+angle increased.
+• Smooth transient from 0º to 90º.
+• With 90º as the maximum desired 
+angle, the maximum actual angle 
+was 106º.
+• Did not exceed maximum safety 
+angle of 114.10º.
+Desired 
+Angle (deg)
+PIP Error 
+(deg)
+PIP Error 
+(%)
+50.00 -8.25 16.50
+70.00 -27.15 38.79
+90.00 -16.00 9.17
+Functional Testing
+Control
+Material Density (Kg/m3) Stress (MPa) Cv ($/m3)
+Titanium Alloy 4620 212.74 78540
+Aluminium Alloy 2770 215.31 6149.4
+PLA 1300 295.36 24947
+ABS 1040.8 299.47 19733.6
+• Material selection coupled with a Finite element Analysis 
+was used to ensure structural integrity.
+• Material selection test involved stress analysis and a cost 
+per volume analysis.
+Structural Testing
+Material Analysis and Selection
+Structural Testing
+Individual component- Finite Element Analysis
+• The structural testing was performed on 
+the individual components and the 
+exoskeleton as they were a safety hazard 
+owing to their contact with the fingers.
+
+3rd – 5th Fingers Module
+Structural Testing
+Design Optimisation
+Design Mass (m³) Stress (MPa) Deformation (mm) Safety factor
+Original 
+design 2.993E-6 560.85 0.066 0.729
+Optimised 
+design 1.098E-6 306.91 0.041 2.204
+Optimised design
+212.74 2.527E-6
+Structural Testing
+Finite Element Analysis
+Optimised designFEA tested design
+• The device had a maximum 
+stress of 75MPa which was 
+lower than the endurance limit 
+of aluminium alloy.
+• Hence the component had a 
+life cycle of infinity.1.01E-10 Pa7.57E-5 Pa
+Structural Testing
+Exoskeleton – Finite Element Analysis
+Standards
+ Materials
+Classification
+ DFMEA
+Regulations
+Regulatory Considerations
+Achievements:
+• Exoskeleton prototype 
+able to actuate the 
+index.
+• The motion that can be 
+executed is cylinder 
+grasp and tip pinch.
+• Testing showed the 
+device is safe to use on 
+the index.
+Conclusions
+• Further optimisation of design
+• Development of control for remaining fingers
+• Further functionality testing
+• Manufacturing with suitable materials
+• Development of a VR user interface
+Future Work
+Thank you for listening
+Questions?
+
