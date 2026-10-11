@@ -63,7 +63,7 @@ st.markdown(
 )
 
 tabs = st.tabs(["🏠 Overview", "🧩 System Design", "🎛️ Control & Electronics",
-                "🔁 Closed → Open Loop", "🧪 Testing & Results", "🧠 Skills & Role"])
+                "🔁 Closed → Open Loop", "🧪 Testing & Results", "🎥 Demo Video", "🧠 Skills & Role"])
 
 # ------------------------------------------------------------------ OVERVIEW
 with tabs[0]:
@@ -97,26 +97,29 @@ with tabs[0]:
         "| Presentation 1 (Oct 2016) | Literature review, aim, objectives, deliverables |\n"
         "| Data acquisition | Optotrak motion capture & force-gauge experiments, validated |\n"
         "| Presentation 2 (Mar 2017) | Design development, FEA/fatigue, electronics, first GUI |\n"
-        "| Final | Prototype build, ROM / sensing / functional tests, report & poster |"
+        "| Final | Prototype build, range of motion (ROM), sensing and functional tests, report & poster |"
     )
 
 # ------------------------------------------------------------------ SYSTEM DESIGN
 with tabs[1]:
     st.subheader("System architecture")
-    st.graphviz_chart(
-        """
-digraph G { rankdir=LR; node [shape=box, style="rounded,filled", fontname=Helvetica, fillcolor="#f1f5f9", color="#0f172a"];
- GUI [label="Desktop GUI (LabVIEW)\\nangle sliders · live plots · E-stop", fillcolor="#99f6e4"];
- CRIO [label="NI cRIO 9024 (real-time + FPGA)\\ntrajectory interpolation\\nangle → PWM duty", fillcolor="#fed7aa"];
- DO [label="NI 9401\\nPWM out"]; AI [label="NI 9215\\nanalog in"];
- SERVO [label="Servo motors\\n(internal closed loop)\\nMCP · PIP"];
- GEAR [label="2:1 spur gears + cable\\ntransmission"];
- FINGER [label="Index finger\\nMCP + PIP", fillcolor="#bae6fd"];
- POT [label="Potentiometers\\n(position monitoring)"];
- GUI -> CRIO [label="Ethernet"]; CRIO -> DO -> SERVO -> GEAR -> FINGER;
- GEAR -> POT -> AI -> CRIO; CRIO -> GUI [label="actual angle", style=dashed];
-}"""
-    )
+    st.markdown("The cRIO sends **PWM** signals through the NI 9401 to the MCP and PIP servos (6 V supply), and reads "
+                "potentiometer voltages (5 V supply) through the NI 9215.")
+    with st.expander("End-to-end data flow (GUI → finger → GUI)", expanded=True):
+      st.graphviz_chart(
+          """
+  digraph G { rankdir=LR; node [shape=box, style="rounded,filled", fontname=Helvetica, fillcolor="#f1f5f9", color="#0f172a"];
+   GUI [label="Desktop GUI (LabVIEW)\\nangle sliders · live plots · E-stop", fillcolor="#99f6e4"];
+   CRIO [label="NI cRIO 9024 (real-time + FPGA)\\ntrajectory interpolation\\nangle → PWM duty", fillcolor="#fed7aa"];
+   DO [label="NI 9401\\nPWM out"]; AI [label="NI 9215\\nanalog in"];
+   SERVO [label="Servo motors\\n(internal closed loop)\\nMCP · PIP"];
+   GEAR [label="2:1 spur gears + cable\\ntransmission"];
+   FINGER [label="Index finger\\nMCP + PIP", fillcolor="#bae6fd"];
+   POT [label="Potentiometers\\n(position monitoring)"];
+   GUI -> CRIO [label="Ethernet"]; CRIO -> DO -> SERVO -> GEAR -> FINGER;
+   GEAR -> POT -> AI -> CRIO; CRIO -> GUI [label="actual angle", style=dashed];
+  }"""
+      )
     st.subheader("Mechanical design")
     c1, c2 = st.columns(2)
     with c1:
@@ -126,13 +129,16 @@ digraph G { rankdir=LR; node [shape=box, style="rounded,filled", fontname=Helvet
     c1, c2, c3 = st.columns(3)
     with c1:
         card("Index finger module", "MCP and PIP independently actuated by servos and cable transmission. "
-             "ROM 80° (MCP) / 90° (PIP); mechanical stops prevent hyper-flexion/extension; adjustable to hand sizes.")
+             "Range of motion (ROM) 80° (MCP) / 90° (PIP); mechanical stops prevent hyper-flexion/extension; adjustable to hand sizes.")
     with c2:
         card("Fingers 3-5 module", "One actuator drives three pulley loops: the three fingers move almost identically "
              "in grasp/release and tip pinch, so one actuator is sufficient.")
     with c3:
         card("Materials", "Aluminium alloy for finger parts (safety factor 12.97, ~10⁸ cycles); PLA base for the prototype "
              "(~1.08×10⁶ cycles under extreme stress). Chosen on biocompatibility, function and cost.")
+    st.info("**ROM = Range of Motion**: the angle a joint can safely move through, from fully extended (0°) to fully flexed. "
+            "For this device it is **MCP 0-80°** (knuckle joint at the base of the finger) and **PIP 0-90°** "
+            "(middle finger joint). Mechanical stops and software limits keep the finger inside its ROM so it cannot hyper-flex or hyper-extend.")
     st.subheader("Design requirements derived from experiments")
     st.dataframe(pd.DataFrame({
         "Requirement": ["Torque (max)", "Angular speed", "Range of motion", "Controller"],
@@ -163,45 +169,124 @@ with tabs[2]:
 
 # ------------------------------------------------------------------ CLOSED -> OPEN
 with tabs[3]:
+    from plotly.subplots import make_subplots
     st.subheader("Why I moved from closed-loop to open-loop control")
-    kpis([("~4°", "sensor drift per grasp-release cycle"), ("2:1", "spur gear to potentiometer"),
-          ("Backlash", "root cause"), ("Open loop", "chosen strategy")])
+    kpis([("~4°", "sensor drift per cycle"), ("Backlash", "root cause (2:1 spur gear)"),
+          ("Open loop", "chosen strategy"), ("Interpolated", "smooth trajectory planning")])
     st.write("")
-    c1, c2, c3 = st.columns(3)
+    c1, c2 = st.columns(2)
     with c1:
-        card("1 · Plan", "Requirement: closed-loop PID on joint angle, with the potentiometer as feedback.")
+        st.markdown("##### ❌ Closed loop: backlash makes the sensor drift")
+        t = np.linspace(0, 3, 600)
+        motor = 35 * (1 - np.cos(2 * np.pi * t))                 # true joint angle (illustrative)
+        play = 2.0                                               # gear slack (deg)
+        pot = np.zeros_like(motor)
+        for i in range(1, len(t)):                               # slack must be taken up before the pot moves
+            d = motor[i] - pot[i - 1]
+            pot[i] = pot[i - 1] + (d - play / 2 if d > play / 2 else d + play / 2 if d < -play / 2 else 0)
+        pot = pot - 2 * play * t                                 # error accumulates ~4° per cycle
+        f1 = go.Figure()
+        f1.add_scatter(x=t, y=motor, name="True angle", line=dict(color="#64748b", width=3))
+        f1.add_scatter(x=t, y=pot, name="Potentiometer", line=dict(color=ORANGE, width=3),
+                       fill="tonexty", fillcolor="rgba(220,38,38,.18)")
+        f1.update_layout(height=300, margin=dict(t=10, b=10), xaxis_title="Cycle", yaxis_title="Angle (°)",
+                         legend=dict(orientation="h", y=1.12))
+        st.plotly_chart(f1, use_container_width=True)
+        st.caption("Reading goes flat at every reversal (gear slack); the red gap grows each cycle, "
+                   "so a feedback loop would chase a wrong value. Illustrative model of the ~4°/cycle measured.")
     with c2:
-        card("2 · Evidence", "Optotrak vs potentiometer showed the reading <b>freezes at zero velocity / direction "
-             "changes</b> and drifts ~4° per cycle: gear backlash. Error compounds over cycles.", warn=True)
-    with c3:
-        card("3 · Decision", "Feedback unreliable → closed loop would chase a wrong signal. Use <b>open loop</b>: "
-             "servos' internal loop holds position from PWM; potentiometer is for <b>display/monitoring only</b>.")
-    st.markdown("**Trade-off.** Open loop gives up active error correction, but keeps motion stable and smooth and "
-                "bounded by the calibrated PWM map and mechanical stops. Proposed fix: smaller-module gears, or a "
-                "backlash-free sensor (e.g. encoder at the joint).")
+        st.markdown("##### ✅ Open loop + interpolated trajectory")
+        tt = np.linspace(0, 4, 500)
+        x = np.clip(tt - 0.5, 0, 2.5) / 2.5
+        step = np.where(tt >= 0.5, 70.0, 0.0)
+        smooth = 70 * (10 * x**3 - 15 * x**4 + 6 * x**5)
+        f2 = make_subplots(specs=[[{"secondary_y": True}]])
+        f2.add_scatter(x=tt, y=step, name="Raw command (step)", line=dict(color="#94a3b8", dash="dot"))
+        f2.add_scatter(x=tt, y=smooth, name="Interpolated angle", line=dict(color=TEAL, width=4))
+        f2.add_scatter(x=tt, y=np.gradient(smooth, tt), name="Speed (°/s)", line=dict(color=ORANGE, width=2),
+                       fill="tozeroy", fillcolor="rgba(249,115,22,.15)", secondary_y=True)
+        f2.update_layout(height=300, margin=dict(t=10, b=10), xaxis_title="Time (s)",
+                         legend=dict(orientation="h", y=1.12))
+        f2.update_yaxes(title_text="Angle (°)", secondary_y=False)
+        f2.update_yaxes(title_text="Speed (°/s)", secondary_y=True, showgrid=False)
+        st.plotly_chart(f2, use_container_width=True)
+        st.caption("The interpolation filter turns the GUI's desired angle into a smooth trajectory: speed starts "
+                   "and ends at zero, so the servo moves gently.")
+    st.success("**Pipeline:** desired angle → **interpolation (trajectory planning)** → angle-to-PWM duty map → servo's "
+               "internal loop → finger.  The potentiometer is kept for **GUI display only**.")
+    st.markdown("**Trade-off.** Open loop gives up active error correction, but motion stays stable, smooth and "
+                "bounded by the calibrated PWM map and mechanical stops. Future fix: smaller-module gears or a "
+                "backlash-free joint encoder, then reinstate closed loop.")
 
-    st.subheader("🔬 Interactive illustration")
-    st.caption("Illustrative model, not measured data. Sensor drift is parameterised from the ~4° observed per cycle.")
-    cc1, cc2, cc3 = st.columns(3)
-    drift = cc1.slider("Sensor drift per cycle (°)", 0.0, 8.0, 4.0, 0.5)
-    cycles = cc2.slider("Grasp-release cycles", 1, 8, 5)
-    target_amp = cc3.slider("Target amplitude (°)", 30, 90, 70)
-    t = np.linspace(0, cycles, 80 * cycles)
-    target = target_amp / 2 * (1 - np.cos(2 * np.pi * t))
-    sensor_bias = drift * t                       # drift accumulates in measurement
-    # closed loop: controller servoes the *measured* value to the target -> true angle absorbs the bias
-    closed_true = target - sensor_bias * np.clip(target / max(target_amp, 1), 0, 1)
-    # open loop: PWM map + servo internal loop; small fixed gain error, no accumulation
-    open_true = target * 0.92 + 0
-    fig = go.Figure()
-    fig.add_scatter(x=t, y=target, name="Target", line=dict(color="#94a3b8", dash="dot"))
-    fig.add_scatter(x=t, y=open_true, name="Open loop (actual)", line=dict(color=TEAL, width=3))
-    fig.add_scatter(x=t, y=closed_true, name="Closed loop on drifting sensor (actual)", line=dict(color=ORANGE, width=3))
-    fig.update_layout(height=380, xaxis_title="Cycle", yaxis_title="Joint angle (°)", margin=dict(t=20),
-                      legend=dict(orientation="h", y=-0.25))
+    st.subheader("🔬 See it yourself: why a drifting sensor is dangerous in closed loop")
+    st.markdown(
+        "**How to read this:** the finger is asked to bend to the *target*. In **closed loop** the controller keeps "
+        "pushing until its **sensor** says the target is reached. But the backlash makes the sensor read *too low* a "
+        "little more every cycle, so the controller pushes the real finger **further and further**. "
+        "In **open loop** the servo simply goes to the calibrated position, so the finger does not creep."
+    )
+    st.caption("Simplified illustration, not measured data. Drift is based on the ~4° per cycle observed in testing; "
+               "open-loop result matches the measured 63.5° at a 70° demand.")
+    cc1, cc2 = st.columns(2)
+    cycle = cc1.slider("Move the slider: number of grasp-release cycles completed", 0, 8, 0)
+    drift = cc2.slider("Sensor drift per cycle (°)", 1.0, 6.0, 4.0, 0.5)
+    target_v, limit = 70.0, 89.91   # MCP demand and MCP safety limit from the report
+    closed_actual = target_v + drift * cycle
+    open_actual = target_v * 0.908
+    # ---- horizontal bar chart
+    names = ["Closed loop (actual finger)", "Open loop (actual finger)", "Target"]
+    vals = [closed_actual, open_actual, target_v]
+    cols_ = [ORANGE if closed_actual <= limit else "#dc2626", TEAL, "#94a3b8"]
+    fig = go.Figure(go.Bar(y=names, x=vals, orientation="h", marker_color=cols_,
+                           text=[f"{v:.1f}°" for v in vals], textposition="outside"))
+    fig.add_vline(x=limit, line_dash="dash", line_color="#dc2626",
+                  annotation_text="Safety limit 89.9°", annotation_position="top")
+    fig.update_layout(height=260, xaxis=dict(title="MCP joint angle (°)", range=[0, 130]), margin=dict(t=30, b=10))
     st.plotly_chart(fig, use_container_width=True)
-    st.caption("With drift, the closed-loop actual angle wanders further from the target each cycle; "
-               "the open-loop error stays bounded (measured open-loop error was ~9-15 % for MCP).")
+
+    # ---- finger drawing: the line (phalanx) rotates about the MCP / PIP joints
+    def finger(mcp_deg, pip_ratio=1.0):
+        """Side view. Flexion rotates the finger downward. Returns joint coordinates."""
+        a1 = np.radians(mcp_deg)
+        a2 = np.radians(mcp_deg * pip_ratio)
+        palm = (-3.0, 0.0)
+        mcp = (0.0, 0.0)
+        pip = (mcp[0] + 4.5 * np.cos(a1), mcp[1] - 4.5 * np.sin(a1))
+        tip = (pip[0] + 3.5 * np.cos(a1 + a2), pip[1] - 3.5 * np.sin(a1 + a2))
+        return palm, mcp, pip, tip
+
+    from plotly.subplots import make_subplots
+    fig2 = make_subplots(rows=1, cols=2, subplot_titles=("Open loop", "Closed loop"), horizontal_spacing=0.06)
+    for col, (ang, color) in enumerate([(open_actual, TEAL),
+                                        (closed_actual, ORANGE if closed_actual <= limit else "#dc2626")], start=1):
+        for a_deg, c, w, dash, nm in [(limit, "#dc2626", 2, "dash", "Safety limit"),
+                                      (target_v, "#94a3b8", 5, "dot", "Target"),
+                                      (ang, color, 9, "solid", "Actual finger")]:
+            p, m, pp, t_ = finger(a_deg)
+            fig2.add_trace(go.Scatter(x=[p[0], m[0], pp[0], t_[0]] if nm != "Safety limit" else [m[0], pp[0]],
+                                      y=[p[1], m[1], pp[1], t_[1]] if nm != "Safety limit" else [m[1], pp[1]],
+                                      mode="lines", line=dict(color=c, width=w, dash=dash),
+                                      name=nm, showlegend=(col == 1)), row=1, col=col)
+        p, m, pp, t_ = finger(ang)
+        fig2.add_trace(go.Scatter(x=[m[0], pp[0]], y=[m[1], pp[1]], mode="markers+text",
+                                  marker=dict(size=16, color="white", line=dict(color="#0f172a", width=3)),
+                                  text=["MCP", "PIP"], textposition="top center", showlegend=False), row=1, col=col)
+        fig2.add_annotation(x=1.2, y=-0.9, text=f"{ang:.0f}°", showarrow=False, font=dict(size=18, color=color),
+                            row=1, col=col)
+    fig2.update_xaxes(visible=False, range=[-4, 9], scaleanchor="y", scaleratio=1)
+    fig2.update_yaxes(visible=False, range=[-9, 3])
+    fig2.update_layout(height=380, margin=dict(t=40, b=0), legend=dict(orientation="h", y=-0.02))
+    st.plotly_chart(fig2, use_container_width=True)
+    st.caption("Side view of the index finger. The line rotates about the MCP joint (palm side) and PIP joint. "
+               "Grey dotted = target, red dashed = safety limit. PIP is drawn following the MCP angle for illustration.")
+    if closed_actual > limit:
+        st.error(f"After {cycle} cycles the closed-loop finger reaches {closed_actual:.1f}°, past the safety limit. "
+                 "Open loop stays steady.")
+    elif cycle == 0:
+        st.info("At the start both work. Now drag the cycle slider to the right.")
+    else:
+        st.warning(f"Closed loop has crept {closed_actual - target_v:.1f}° beyond target and keeps growing; open loop is unchanged.")
+
 
 # ------------------------------------------------------------------ TESTING
 with tabs[4]:
@@ -234,6 +319,14 @@ with tabs[4]:
 
 # ------------------------------------------------------------------ SKILLS
 with tabs[5]:
+    st.subheader("Prototype demo")
+    st.video("https://youtu.be/o3KeEM2h4Hs")
+    vids = sorted(p for p in A.glob("*") if p.suffix.lower() in (".mov", ".mp4", ".webm"))
+    if vids:
+      with st.expander("Local copy of the demo (if YouTube is blocked)"):
+        st.video(str(vids[0]))
+
+with tabs[6]:
     st.subheader("My role")
     st.write("**Control Development** within a 5-person multidisciplinary team (Mechatronics, Mechanical, Medical Engineering), "
              "supervised by Dr Andrew Jackson.")
@@ -260,6 +353,6 @@ with tabs[5]:
         st.info("Good engineering is following the data: when feedback was unreliable, I removed it from the control path.")
     st.subheader("Gallery")
     cols = st.columns(3)
-    for col, (n, cap) in zip(cols, [("exo1.png", "Concept 1"), ("exo2.png", "Concept 2"), ("exo4.png", "Concept 3")]):
+    for col, (n, cap) in zip(cols, [("exo1.png", "View 1"), ("exo2.png", "View 2"), ("exo4.png", "View 3")]):
         with col:
             img(n, cap)
