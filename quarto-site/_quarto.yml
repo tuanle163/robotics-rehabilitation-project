@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "HEXORA"
+  page-navigation: true
+  navbar:
+    background: "#0f172a"
+    left:
+      - href: index.qmd
+        text: "🏠 Overview"
+      - href: system-design.qmd
+        text: "🧩 System Design"
+      - href: control.qmd
+        text: "🎛️ Control & Electronics"
+      - href: loop.qmd
+        text: "🔁 Closed → Open Loop"
+      - href: results.qmd
+        text: "🧪 Testing & Results"
+      - href: demo.qmd
+        text: "🎥 Demo"
+      - href: skills.qmd
+        text: "🧠 Skills & Role"
+    right:
+      - icon: github
+        href: https://github.com/tuanle163/robotics-rehabilitation-project
+  page-footer: "HEXORA · MECH 5030M Team Project · Huynh Minh Tuan Le"
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: true
+    toc-depth: 2
+    title-block-banner: "#134e4a"
+    title-block-banner-color: white
+    smooth-scroll: true
+    code-tools: false
+
+execute:
+  echo: false
+  warning: false

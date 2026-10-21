@@ -1,0 +1,58 @@
+---
+title: "Testing & Results"
+subtitle: "Verification and validation"
+---
+
+<div class="kpis">
+<div class="kpi"><b>±2.70°</b><span>Optotrak jig uncertainty</span></div>
+<div class="kpi"><b>±0.91 N</b><span>force gauge accuracy</span></div>
+<div class="kpi"><b>12%</b><span>force validation error</span></div>
+<div class="kpi"><b>63.5°</b><span>MCP actual @ 70° demand</span></div>
+</div>
+
+```{python}
+import plotly.graph_objects as go
+
+def err_bar(x, y, color):
+    f = go.Figure(go.Bar(x=x, y=y, marker_color=color, text=[f"{v:+.2f}°" for v in y], textposition="outside"))
+    f.update_layout(height=300, margin=dict(t=10, b=10), xaxis_title="Desired angle (°)",
+                    yaxis_title="Error (°)", template="plotly_white", xaxis=dict(type="category"))
+    return f
+```
+
+## MCP functional test (open loop)
+
+| Desired (°) | Error (°) | Error (%) |
+|---|---|---|
+| 30 | 4.40 | -14.67 |
+| 50 | 5.57 | -11.14 |
+| 70 | 6.47 | -9.24 |
+
+```{python}
+err_bar([30, 50, 70], [4.4, 5.57, 6.47], "#14b8a6").show()
+```
+
+Max 70° demand → 63.53° actual; below the safety limit of 89.91°. Smooth 0-70° transient.
+
+## PIP functional test (open loop)
+
+| Desired (°) | Error (°) | Error (%) |
+|---|---|---|
+| 50 | -8.25 | 16.50 |
+| 70 | -27.15 | 38.79 |
+
+```{python}
+err_bar([50, 70], [-8.25, -27.15], "#f97316").show()
+```
+
+Max 90° demand → 106° actual; below the safety limit of 114.10°. The larger PIP error is an honest limitation of open loop.
+
+## Outcome
+
+::: {.callout-tip}
+The prototype actuated the index finger in passive-assist mode within the safe ROM (110° PIP, 90° MCP), achieved cylindrical grasp, and was unable to achieve tip pinch.
+:::
+
+::: {.callout-warning}
+**Limitations:** only the index finger was actuated; open-loop accuracy is limited by backlash. **Future work:** low-module/backlash-free sensing, then reinstate closed-loop control.
+:::

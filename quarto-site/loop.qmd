@@ -1,0 +1,146 @@
+---
+title: "Why I moved from closed-loop to open-loop control"
+subtitle: "Gear backlash → sensor drift → interpolated open-loop trajectory"
+---
+
+```{python}
+import numpy as np
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+TEAL, ORANGE, RED, GREY = "#14b8a6", "#f97316", "#dc2626", "#94a3b8"
+```
+
+<div class="kpis">
+<div class="kpi"><b>~4°</b><span>sensor drift per cycle</span></div>
+<div class="kpi"><b>Backlash</b><span>root cause (2:1 spur gear)</span></div>
+<div class="kpi"><b>Open loop</b><span>chosen strategy</span></div>
+<div class="kpi"><b>Interpolated</b><span>smooth trajectory planning</span></div>
+</div>
+
+## ❌ Closed loop: backlash makes the sensor drift
+
+```{python}
+t = np.linspace(0, 3, 600)
+motor = 35 * (1 - np.cos(2 * np.pi * t))        # true joint angle (illustrative)
+play = 2.0                                      # gear slack (deg)
+pot = np.zeros_like(motor)
+for i in range(1, len(t)):                      # slack must be taken up before the pot moves
+    d = motor[i] - pot[i - 1]
+    pot[i] = pot[i - 1] + (d - play / 2 if d > play / 2 else d + play / 2 if d < -play / 2 else 0)
+pot = pot - 2 * play * t                        # error accumulates ~4 deg per cycle
+
+f1 = go.Figure()
+f1.add_scatter(x=t, y=motor, name="True angle", line=dict(color="#64748b", width=3))
+f1.add_scatter(x=t, y=pot, name="Potentiometer", line=dict(color=ORANGE, width=3),
+               fill="tonexty", fillcolor="rgba(220,38,38,.18)")
+f1.update_layout(height=340, margin=dict(t=10, b=10), xaxis_title="Grasp-release cycle",
+                 yaxis_title="Angle (°)", legend=dict(orientation="h", y=1.12), template="plotly_white")
+f1.show()
+```
+
+The potentiometer reading goes flat at every direction change (gear slack) and the red gap grows each cycle, so a feedback loop would chase a wrong value. *Illustrative model of the ~4° per cycle measured against Optotrak.*
+
+## ✅ Open loop + interpolated trajectory planning
+
+The **interpolation filter** turns the GUI's desired angle into a smooth trajectory, so speed starts and ends at zero and the servo moves gently.
+
+```{python}
+tt = np.linspace(0, 4, 500)
+x = np.clip(tt - 0.5, 0, 2.5) / 2.5
+step = np.where(tt >= 0.5, 70.0, 0.0)
+smooth = 70 * (10 * x**3 - 15 * x**4 + 6 * x**5)    # quintic: zero speed/acceleration at both ends
+
+f2 = make_subplots(specs=[[{"secondary_y": True}]])
+f2.add_scatter(x=tt, y=step, name="Raw command (step)", line=dict(color=GREY, dash="dot"))
+f2.add_scatter(x=tt, y=smooth, name="Interpolated angle", line=dict(color=TEAL, width=4))
+f2.add_scatter(x=tt, y=np.gradient(smooth, tt), name="Speed (°/s)", line=dict(color=ORANGE, width=2),
+               fill="tozeroy", fillcolor="rgba(249,115,22,.15)", secondary_y=True)
+f2.update_layout(height=340, margin=dict(t=10, b=10), xaxis_title="Time (s)",
+                 legend=dict(orientation="h", y=1.12), template="plotly_white")
+f2.update_yaxes(title_text="Angle (°)", secondary_y=False)
+f2.update_yaxes(title_text="Speed (°/s)", secondary_y=True, showgrid=False)
+f2.show()
+```
+
+::: {.callout-tip}
+## Pipeline
+desired angle → **interpolation (trajectory planning)** → angle-to-PWM duty map → servo's internal loop → finger. The potentiometer is kept for **GUI display only**.
+:::
+
+**Trade-off.** Open loop gives up active error correction, but motion stays stable, smooth and bounded by the calibrated PWM map and mechanical stops. Future fix: smaller-module gears or a backlash-free joint encoder, then reinstate closed loop.
+
+## 🔬 See it yourself
+
+**How to read this:** the finger is asked to bend to the *target*. In **closed loop** the controller keeps pushing until its **sensor** says the target is reached. But backlash makes the sensor read *too low* a little more every cycle, so the controller pushes the real finger **further and further**. In **open loop** the servo goes to the calibrated position, so the finger does not creep.
+
+**Drag the slider** below to add grasp-release cycles.
+
+```{python}
+TARGET, LIMIT, DRIFT = 70.0, 89.91, 4.0      # MCP demand, MCP safety limit (report), drift per cycle (deg)
+OPEN = TARGET * 0.908                        # measured: 63.5 deg actual at 70 deg demand
+
+def finger(mcp_deg):
+    """Side view. Flexion rotates the finger downward."""
+    a1 = np.radians(mcp_deg)
+    a2 = np.radians(mcp_deg)                 # PIP drawn following MCP (illustration)
+    mcp = (0.0, 0.0)
+    pip = (4.5 * np.cos(a1), -4.5 * np.sin(a1))
+    tip = (pip[0] + 3.5 * np.cos(a1 + a2), pip[1] - 3.5 * np.sin(a1 + a2))
+    return (-3.0, 0.0), mcp, pip, tip
+
+def closed_color(a):
+    return ORANGE if a <= LIMIT else RED
+
+def build(cycle):
+    """Return [(trace, row, col), ...] in a fixed order, so frames can update them by index."""
+    closed = TARGET + DRIFT * cycle
+    vals = [closed, OPEN, TARGET]
+    out = [(go.Bar(y=["Closed loop (actual)", "Open loop (actual)", "Target"], x=vals, orientation="h",
+                   marker_color=[closed_color(closed), TEAL, GREY],
+                   text=[f"{v:.1f}°" for v in vals], textposition="outside", showlegend=False), 1, 1)]
+    for col, (ang, color) in enumerate([(OPEN, TEAL), (closed, closed_color(closed))], start=1):
+        for a_deg, c, w, dash, nm in [(LIMIT, RED, 2, "dash", "Safety limit"),
+                                      (TARGET, GREY, 5, "dot", "Target"),
+                                      (ang, color, 9, "solid", "Actual finger")]:
+            p, m, pp, t_ = finger(a_deg)
+            xs, ys = ([m[0], pp[0]], [m[1], pp[1]]) if nm == "Safety limit" else \
+                     ([p[0], m[0], pp[0], t_[0]], [p[1], m[1], pp[1], t_[1]])
+            out.append((go.Scatter(x=xs, y=ys, mode="lines", line=dict(color=c, width=w, dash=dash),
+                                   name=nm, showlegend=(col == 1), legendgroup=nm), 2, col))
+        p, m, pp, t_ = finger(ang)
+        out.append((go.Scatter(x=[m[0], pp[0]], y=[m[1], pp[1]], mode="markers+text",
+                               marker=dict(size=15, color="white", line=dict(color="#0f172a", width=3)),
+                               text=["MCP", "PIP"], textposition="top center", showlegend=False), 2, col))
+        out.append((go.Scatter(x=[1.5], y=[-8], mode="text", text=[f"{ang:.0f}°"],
+                               textfont=dict(size=22, color=color), showlegend=False), 2, col))
+    return out
+
+fig = make_subplots(rows=2, cols=2, specs=[[{"colspan": 2}, None], [{}, {}]], row_heights=[0.32, 0.68],
+                    subplot_titles=("MCP joint angle", "Open loop", "Closed loop"),
+                    vertical_spacing=0.12, horizontal_spacing=0.04)
+for tr, r, c in build(0):
+    fig.add_trace(tr, row=r, col=c)
+fig.frames = [go.Frame(data=[tr for tr, _, _ in build(k)], name=str(k)) for k in range(9)]
+fig.add_vline(x=LIMIT, line_dash="dash", line_color=RED, row=1, col=1,
+              annotation_text="Safety limit 89.9°", annotation_position="top")
+fig.update_xaxes(range=[0, 130], title_text="Angle (°)", row=1, col=1)
+fig.update_xaxes(visible=False, range=[-4, 9], row=2)
+fig.update_yaxes(visible=False, range=[-9.5, 3], scaleanchor="x2", scaleratio=1, row=2, col=1)
+fig.update_yaxes(visible=False, range=[-9.5, 3], scaleanchor="x3", scaleratio=1, row=2, col=2)
+fig.update_layout(
+    height=640, template="plotly_white", margin=dict(t=40, b=90),
+    legend=dict(orientation="h", y=-0.2),
+    sliders=[dict(active=0, x=0.05, len=0.9, y=-0.02,
+                  currentvalue=dict(prefix="Grasp-release cycles completed: "),
+                  steps=[dict(method="animate", label=str(k),
+                              args=[[str(k)], dict(mode="immediate", frame=dict(duration=0, redraw=True),
+                                                   transition=dict(duration=0))]) for k in range(9)])])
+fig.show()
+```
+
+*Simplified illustration, not measured data. Drift is based on the ~4° per cycle observed in testing; the open-loop result matches the measured 63.5° at a 70° demand. The PIP joint is drawn following the MCP angle. Grey dotted = target, red dashed = safety limit.*
+
+::: {.callout-warning}
+At 4° of drift per cycle, the closed-loop finger passes the 89.9° MCP safety limit after only **5 cycles**. Open loop stays steady.
+:::

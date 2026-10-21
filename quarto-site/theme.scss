@@ -1,0 +1,52 @@
+/*-- scss:defaults --*/
+$primary: #0f766e;
+$body-bg: #ffffff;
+$body-color: #0f172a;
+$link-color: #0f766e;
+$font-family-sans-serif: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+/*-- scss:rules --*/
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 1.5rem 0;
+}
+.kpi {
+  text-align: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.9rem 0.4rem;
+}
+.kpi b { display: block; font-size: 1.7rem; color: #14b8a6; }
+.kpi span { font-size: 0.8rem; color: #475569; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.card-x {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #14b8a6;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+}
+.card-x h4 { margin: 0 0 0.4rem 0; font-size: 1.05rem; }
+.card-x.warn { border-left-color: #f97316; }
+
+.chip {
+  display: inline-block;
+  background: rgba(20, 184, 166, 0.18);
+  color: #5eead4;
+  border: 1px solid #14b8a6;
+  padding: 0.1rem 0.7rem;
+  border-radius: 999px;
+  margin: 0.2rem 0.25rem 0.2rem 0;
+  font-size: 0.85rem;
+}
+.quarto-title-banner { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+figure img { border-radius: 10px; }

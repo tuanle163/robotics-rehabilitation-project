@@ -1,0 +1,36 @@
+---
+title: "Control & Electronics"
+subtitle: "My contribution: embedded control, electronics and GUI"
+---
+
+::: {.cards}
+::: {.card-x}
+#### Hardware
+- **NI CompactRIO 9024**: real-time controller + FPGA
+- **NI 9401** digital I/O → PWM to servos (250 Hz)
+- **NI 9215** analog in ← potentiometers
+- Power HD 3688HB & Corona DS-929MG servos
+- Vishay P11P potentiometers, Interlink FSRs
+:::
+
+::: {.card-x}
+#### Software (LabVIEW)
+- Interpolation filter for smooth trajectory planning
+- Desired angle → PWM duty-cycle mapping from benchmark calibration
+- GUI: MCP/PIP angle sliders, live desired-vs-actual plots, emergency stop
+- Passive-assist mode: full assistance for flexion/extension
+:::
+:::
+
+## Servo calibration benchmark
+
+PWM duty cycle swept; angle measured via potentiometers.
+
+| Motor | Duty min (%) | Duty max (%) | ROM min (°) | ROM max (°) |
+|---|---|---|---|---|
+| MCP | 22.5 | 52.5 | 0 | 120.49 |
+| PIP | 16 | 60 | 0 | 150 |
+
+## Safety by design
+
+FMEA identified four hazards: **hyperextension, joint breakage, electric shock, mechanical failure.** Mitigations: mechanical stops, software-limited duty cycles within safe ROM, emergency stop in the GUI.

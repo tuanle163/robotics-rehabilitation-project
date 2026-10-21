@@ -1,0 +1,6 @@
+---
+title: "Prototype Demo"
+subtitle: "The exoskeleton in action"
+---
+
+{{< video https://youtu.be/o3KeEM2h4Hs >}}
